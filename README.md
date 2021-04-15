@@ -19,7 +19,7 @@ make install
 Запуск:
 ```bash
 cd ../../Bin/{Debug|Release}/
-./Alexander_Novichkov_ASearch ../../Examples/example.xml
+./Alexander_Novichkov_MAPF ../../Examples/example.xml
 ```
 
 ### Windows
@@ -35,7 +35,7 @@ mingw32-make install
 Запуск:
 ```cmd
 cd ../../Bin/{Debug|Release}/
-Alexander_Novichkov_ASearch.exe ../../Examples/example.xml
+Alexander_Novichkov_MAPF.exe ../../Examples/example.xml
 ```
 
 ### Формат входных данных
