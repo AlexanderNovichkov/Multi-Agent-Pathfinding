@@ -5,10 +5,6 @@ Map::Map()
 {
     height = -1;
     width = -1;
-    start_i = -1;
-    start_j = -1;
-    goal_i = -1;
-    goal_j = -1;
     Grid = nullptr;
     cellSize = 1;
 }
@@ -22,31 +18,31 @@ Map::~Map()
     }
 }
 
-bool Map::CellIsTraversable(int i, int j) const
+bool Map::CellIsTraversable(const Point &p) const
 {
-    return (Grid[i][j] == CN_GC_NOOBS);
+    return (Grid[p.i][p.j] == CN_GC_NOOBS);
 }
 
-bool Map::CellIsObstacle(int i, int j) const
+bool Map::CellIsObstacle(const Point &p) const
 {
-    return (Grid[i][j] != CN_GC_NOOBS);
+    return (Grid[p.i][p.j] != CN_GC_NOOBS);
 }
 
-bool Map::CellOnGrid(int i, int j) const
+bool Map::CellOnGrid(const Point &p) const
 {
-    return (i < height && i >= 0 && j < width && j >= 0);
+    return (p.i < height && p.i >= 0 && p.j < width && p.j >= 0);
 }
 
 bool Map::getMap(const char *FileName)
 {
     int rowiter = 0, grid_i = 0, grid_j = 0;
 
-    tinyxml2::XMLElement *root = 0, *map = 0, *element = 0, *mapnode;
+    tinyxml2::XMLElement *root = nullptr, *map = nullptr, *element = nullptr, *mapnode;
 
     std::string value;
     std::stringstream stream;
 
-    bool hasGridMem = false, hasGrid = false, hasHeight = false, hasWidth = false, hasSTX = false, hasSTY = false, hasFINX = false, hasFINY = false, hasCellSize = false;
+    bool hasGridMem = false, hasGrid = false, hasHeight = false, hasWidth = false, hasCellSize = false, hasAgents = false;
 
     tinyxml2::XMLDocument doc;
 
@@ -77,9 +73,8 @@ bool Map::getMap(const char *FileName)
         stream.str("");
         stream.clear();
 
-        if(value != CNS_TAG_GRID)
-        {
-           stream << element->GetText();
+        if (element->GetText()) {
+            stream << element->GetText();
         }
 
 
@@ -95,44 +90,36 @@ bool Map::getMap(const char *FileName)
                 std::cout << "Warning! Duplicate '" << CNS_TAG_HEIGHT << "' encountered." << std::endl;
                 std::cout << "Only first value of '" << CNS_TAG_HEIGHT << "' =" << height << "will be used."
                           << std::endl;
-            }
-            else {
+            } else {
                 if (!((stream >> height) && (height > 0))) {
                     std::cout << "Warning! Invalid value of '" << CNS_TAG_HEIGHT
                               << "' tag encountered (or could not convert to integer)." << std::endl;
                     std::cout << "Value of '" << CNS_TAG_HEIGHT << "' tag should be an integer >=0" << std::endl;
                     std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_HEIGHT
                               << "' tag will be encountered later..." << std::endl;
-                }
-                else
+                } else
                     hasHeight = true;
             }
-        }
-        else if (value == CNS_TAG_WIDTH) {
+        } else if (value == CNS_TAG_WIDTH) {
             if (hasWidth) {
                 std::cout << "Warning! Duplicate '" << CNS_TAG_WIDTH << "' encountered." << std::endl;
                 std::cout << "Only first value of '" << CNS_TAG_WIDTH << "' =" << width << "will be used." << std::endl;
-            }
-            else {
+            } else {
                 if (!((stream >> width) && (width > 0))) {
                     std::cout << "Warning! Invalid value of '" << CNS_TAG_WIDTH
                               << "' tag encountered (or could not convert to integer)." << std::endl;
                     std::cout << "Value of '" << CNS_TAG_WIDTH << "' tag should be an integer AND >0" << std::endl;
                     std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_WIDTH
                               << "' tag will be encountered later..." << std::endl;
-
-                }
-                else
+                } else
                     hasWidth = true;
             }
-        }
-        else if (value == CNS_TAG_CELLSIZE) {
+        } else if (value == CNS_TAG_CELLSIZE) {
             if (hasCellSize) {
                 std::cout << "Warning! Duplicate '" << CNS_TAG_CELLSIZE << "' encountered." << std::endl;
                 std::cout << "Only first value of '" << CNS_TAG_CELLSIZE << "' =" << cellSize << "will be used."
                           << std::endl;
-            }
-            else {
+            } else {
                 if (!((stream >> cellSize) && (cellSize > 0))) {
                     std::cout << "Warning! Invalid value of '" << CNS_TAG_CELLSIZE
                               << "' tag encountered (or could not convert to double)." << std::endl;
@@ -140,108 +127,44 @@ bool Map::getMap(const char *FileName)
                               << "' tag should be double AND >0. By default it is defined to '1'" << std::endl;
                     std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_CELLSIZE
                               << "' tag will be encountered later..." << std::endl;
-                }
-                else
+                } else
                     hasCellSize = true;
             }
-        }
-        else if (value == CNS_TAG_STX) {
-            if (!hasWidth) {
-                std::cout << "Error! '" << CNS_TAG_STX << "' tag encountered before '" << CNS_TAG_WIDTH << "' tag."
-                          << std::endl;
-                return false;
-            }
+        } else if (value == CNS_TAG_AGENTS) {
+            if (hasAgents) {
+                std::cout << "Warning! Duplicate of tag'" << CNS_TAG_AGENTS << "' encountered." << std::endl;
+                std::cout << "Only first value will be used." << std::endl;
+            } else {
+                hasAgents = true;
+                element = mapnode->FirstChildElement();
+                while (element != nullptr) {
+                    std::string tag_name = element->Value();
+                    std::transform(tag_name.begin(), tag_name.end(), tag_name.begin(), ::tolower);
+                    if (tag_name != CNS_TAG_AGENTDATA) {
+                        std::cout << "ERROR! Expected " << CNS_TAG_AGENTDATA << " but got " << tag_name << " !"
+                                  << std::endl;
+                        return false;
+                    }
 
-            if (hasSTX) {
-                std::cout << "Warning! Duplicate '" << CNS_TAG_STX << "' encountered." << std::endl;
-                std::cout << "Only first value of '" << CNS_TAG_STX << "' =" << start_j << "will be used." << std::endl;
-            }
-            else {
-                if (!(stream >> start_j && start_j >= 0 && start_j < width)) {
-                    std::cout << "Warning! Invalid value of '" << CNS_TAG_STX
-                              << "' tag encountered (or could not convert to integer)" << std::endl;
-                    std::cout << "Value of '" << CNS_TAG_STX << "' tag should be an integer AND >=0 AND < '"
-                              << CNS_TAG_WIDTH << "' value, which is " << width << std::endl;
-                    std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_STX
-                              << "' tag will be encountered later..." << std::endl;
-                }
-                else
-                    hasSTX = true;
-            }
-        }
-        else if (value == CNS_TAG_STY) {
-            if (!hasHeight) {
-                std::cout << "Error! '" << CNS_TAG_STY << "' tag encountered before '" << CNS_TAG_HEIGHT << "' tag."
-                          << std::endl;
-                return false;
-            }
+                    Agent agent{};
+                    tinyxml2::XMLError error1 = element->QueryIntAttribute(CNS_TAG_ATTR_STX, &agent.start.j);
+                    tinyxml2::XMLError error2 = element->QueryIntAttribute(CNS_TAG_ATTR_STY, &agent.start.i);
+                    tinyxml2::XMLError error3 = element->QueryIntAttribute(CNS_TAG_ATTR_FINX, &agent.goal.j);
+                    tinyxml2::XMLError error4 = element->QueryIntAttribute(CNS_TAG_ATTR_FINY, &agent.goal.i);
 
-            if (hasSTY) {
-                std::cout << "Warning! Duplicate '" << CNS_TAG_STY << "' encountered." << std::endl;
-                std::cout << "Only first value of '" << CNS_TAG_STY << "' =" << start_i << "will be used." << std::endl;
-            }
-            else {
-                if (!(stream >> start_i && start_i >= 0 && start_i < height)) {
-                    std::cout << "Warning! Invalid value of '" << CNS_TAG_STY
-                              << "' tag encountered (or could not convert to integer)" << std::endl;
-                    std::cout << "Value of '" << CNS_TAG_STY << "' tag should be an integer AND >=0 AND < '"
-                              << CNS_TAG_HEIGHT << "' value, which is " << height << std::endl;
-                    std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_STY
-                              << "' tag will be encountered later..." << std::endl;
-                }
-                else
-                    hasSTY = true;
-            }
-        }
-        else if (value == CNS_TAG_FINX) {
-            if (!hasWidth) {
-                std::cout << "Error! '" << CNS_TAG_FINX << "' tag encountered before '" << CNS_TAG_WIDTH << "' tag."
-                          << std::endl;
-                return false;
-            }
+                    if (error1 != tinyxml2::XMLError::XML_SUCCESS || error2 != tinyxml2::XMLError::XML_SUCCESS ||
+                        error3 != tinyxml2::XMLError::XML_SUCCESS || error4 != tinyxml2::XMLError::XML_SUCCESS) {
+                        std::cout << "Error! No start or finish position of agent " << agents.size() + 1
+                                  << "!"
+                                  << std::endl;
+                        return false;
+                    }
 
-            if (hasFINX) {
-                std::cout << "Warning! Duplicate '" << CNS_TAG_FINX << "' encountered." << std::endl;
-                std::cout << "Only first value of '" << CNS_TAG_FINX << "' =" << goal_j << "will be used." << std::endl;
-            }
-            else {
-                if (!(stream >> goal_j && goal_j >= 0 && goal_j < width)) {
-                    std::cout << "Warning! Invalid value of '" << CNS_TAG_FINX
-                              << "' tag encountered (or could not convert to integer)" << std::endl;
-                    std::cout << "Value of '" << CNS_TAG_FINX << "' tag should be an integer AND >=0 AND < '"
-                              << CNS_TAG_WIDTH << "' value, which is " << width << std::endl;
-                    std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_FINX
-                              << "' tag will be encountered later..." << std::endl;
+                    agents.push_back(agent);
+                    element = element->NextSiblingElement();
                 }
-                else
-                    hasFINX = true;
             }
-        }
-        else if (value == CNS_TAG_FINY) {
-            if (!hasHeight) {
-                std::cout << "Error! '" << CNS_TAG_FINY << "' tag encountered before '" << CNS_TAG_HEIGHT << "' tag."
-                          << std::endl;
-                return false;
-            }
-
-            if (hasFINY) {
-                std::cout << "Warning! Duplicate '" << CNS_TAG_FINY << "' encountered." << std::endl;
-                std::cout << "Only first value of '" << CNS_TAG_FINY << "' =" << goal_i << "will be used." << std::endl;
-            }
-            else {
-                if (!(stream >> goal_i && goal_i >= 0 && goal_i < height)) {
-                    std::cout << "Warning! Invalid value of '" << CNS_TAG_FINY
-                              << "' tag encountered (or could not convert to integer)" << std::endl;
-                    std::cout << "Value of '" << CNS_TAG_FINY << "' tag should be an integer AND >=0 AND < '"
-                              << CNS_TAG_HEIGHT << "' value, which is " << height << std::endl;
-                    std::cout << "Continue reading XML and hope correct value of '" << CNS_TAG_FINY
-                              << "' tag will be encountered later..." << std::endl;
-                }
-                else
-                    hasFINY = true;
-            }
-        }
-        else if (value == CNS_TAG_GRID) {
+        } else if (value == CNS_TAG_GRID) {
             hasGrid = true;
             if (!(hasHeight && hasWidth)) {
                 std::cout << "Error! No '" << CNS_TAG_WIDTH << "' tag or '" << CNS_TAG_HEIGHT << "' tag before '"
@@ -251,7 +174,8 @@ bool Map::getMap(const char *FileName)
             element = mapnode->FirstChildElement();
             while (grid_i < height) {
                 if (!element) {
-                    std::cout << "Error! Not enough '" << CNS_TAG_ROW << "' tags inside '" << CNS_TAG_GRID << "' tag."
+                    std::cout << "Error! Not enough '" << CNS_TAG_ROW << "' tags inside '" << CNS_TAG_GRID
+                              << "' tag."
                               << std::endl;
                     std::cout << "Number of '" << CNS_TAG_ROW
                               << "' tags should be equal (or greater) than the value of '" << CNS_TAG_HEIGHT
@@ -278,7 +202,8 @@ bool Map::getMap(const char *FileName)
                     }
 
                 if (grid_j != width) {
-                    std::cout << "Invalid value on " << CNS_TAG_GRID << " in the " << grid_i + 1 << " " << CNS_TAG_ROW
+                    std::cout << "Invalid value on " << CNS_TAG_GRID << " in the " << grid_i + 1 << " "
+                              << CNS_TAG_ROW
                               << std::endl;
                     return false;
                 }
@@ -293,48 +218,74 @@ bool Map::getMap(const char *FileName)
         std::cout << "Error! There is no tag 'grid' in xml-file!\n";
         return false;
     }
-    if (!(hasFINX && hasFINY && hasSTX && hasSTY))
-        return false;
 
-    if (Grid[start_i][start_j] != CN_GC_NOOBS) {
-        std::cout << "Error! Start cell is not traversable (cell's value is" << Grid[start_i][start_j] << ")!"
-                  << std::endl;
+    if (agents.empty()) {
+        std::cout << "Error! There is no agents in xml-file!" << std::endl;
         return false;
     }
 
-    if (Grid[goal_i][goal_j] != CN_GC_NOOBS) {
-        std::cout << "Error! Goal cell is not traversable (cell's value is" << Grid[goal_i][goal_j] << ")!"
-                  << std::endl;
-        return false;
+    for (size_t i = 0; i < agents.size(); i++) {
+        if (!CellOnGrid(agents[i].start)) {
+            std::cout << "Error! Start cell of agent " << i + 1 << " is not on grid!" << std::endl;
+            return false;
+        }
+        if (!CellOnGrid(agents[i].goal)) {
+            std::cout << "Error! Finish cell of agent " << i + 1 << " is not on grid!" << std::endl;
+            return false;
+        }
+
+        if (getValue(agents[i].start) != CN_GC_NOOBS) {
+            std::cout << "Error! Start cell of agent " << i + 1 << " is not traversable!" << std::endl;
+            return false;
+        }
+        if (getValue(agents[i].goal) != CN_GC_NOOBS) {
+            std::cout << "Error! Finish cell of agent " << i + 1 << " is not traversable!" << std::endl;
+            return false;
+        }
     }
+
 
     return true;
 }
 
 
-
-int Map::getValue(int i, int j) const
+int Map::getValue(const Point &p) const
 {
-    if (i < 0 || i >= height)
+    if (p.i < 0 || p.i >= height)
         return -1;
 
-    if (j < 0 || j >= width)
+    if (p.j < 0 || p.j >= width)
         return -1;
 
-    return Grid[i][j];
+    return Grid[p.i][p.j];
 }
 
 int Map::getMapHeight() const
 {
-      return height;
+    return height;
 }
 
 int Map::getMapWidth() const
 {
-      return width;
+    return width;
 }
 
 double Map::getCellSize() const
 {
-      return cellSize;
+    return cellSize;
 }
+
+const std::vector<Agent> &Map::getAgents() const
+{
+    return agents;
+}
+
+size_t Map::getAgentsCount() const
+{
+    return agents.size();
+}
+
+const Agent &Map::getAgent(int ind) const{
+    return agents[ind];
+}
+

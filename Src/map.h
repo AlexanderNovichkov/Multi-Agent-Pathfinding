@@ -1,5 +1,6 @@
 #ifndef MAP_H
-#define	MAP_H
+#define    MAP_H
+
 #include <iostream>
 #include "gl_const.h"
 #include <sstream>
@@ -7,6 +8,7 @@
 #include <string>
 #include <algorithm>
 #include "tinyxml2.h"
+#include "basicstructures.h"
 
 //That's the class that stores BOTH grid map data AND start-goal locations.
 //getValue reads the input XML and fills the Map object.
@@ -19,27 +21,39 @@
 
 class Map
 {
-    private:
-        int     height, width;
-        int     start_i, start_j;
-        int     goal_i, goal_j;
-        double  cellSize;
-        int**   Grid;
+private:
+    int height, width;
+    std::vector<Agent> agents;
+    double cellSize;
+    int **Grid;
 
-    public:
-        Map();
-        Map(const Map& orig);
-        ~Map();
+public:
+    Map();
 
-        bool getMap(const char *FileName);
-        bool CellIsTraversable (int i, int j) const;
-        bool CellOnGrid (int i, int j) const;
-        bool CellIsObstacle(int i, int j) const;
-        int  getValue(int i, int j) const;
-        int getMapHeight() const;
-        int getMapWidth() const;
-        double getCellSize() const;
+    Map(const Map &orig);
 
+    ~Map();
+
+    bool getMap(const char *FileName);
+
+    bool CellIsTraversable(const Point &p) const;
+
+    bool CellOnGrid(const Point &p) const;
+
+    bool CellIsObstacle(const Point &p) const;
+
+    int getValue(const Point &p) const;
+
+    int getMapHeight() const;
+
+    int getMapWidth() const;
+
+    double getCellSize() const;
+
+    size_t getAgentsCount() const;
+
+    const std::vector<Agent> &getAgents() const;
+    const Agent &getAgent(int ind) const;
 };
 
 #endif

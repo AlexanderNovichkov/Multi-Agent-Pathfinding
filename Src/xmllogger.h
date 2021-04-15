@@ -18,18 +18,16 @@ public:
 
     void saveLog();
 
-    void writeToLogMap(const Map &Map, const std::list<Node> &path);
+    // void writeToLogMap(const Map &Map, const std::list<Node> &path);
 
     //void writeToLogOpenClose(const typename &open, const typename &close);
 
-    void writeToLogPath(const std::list<Node> &path);
+    void writeToLogAgentsSresult(const SearchResult &sr);
 
-    void writeToLogHPpath(const std::list<Node> &hppath);
-
-    void writeToLogNotFound();
-
-    void writeToLogSummary(unsigned int numberofsteps, unsigned int nodescreated, float length, double time, double cellSize);
-
+private:
+    void writeSummary(const SearchResult &sr,tinyxml2::XMLElement * section);
+    void writeAgentSummary(const AgentSearchResult &asr, tinyxml2::XMLElement * agent_section);
+    void writeTrajectory(const AgentSearchResult &asr, tinyxml2::XMLElement *agent_section);
 private:
     std::string LogFileName;
     tinyxml2::XMLDocument doc;

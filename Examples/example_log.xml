@@ -2,28 +2,69 @@
 <root>
     <map>
         <width>25</width>
-        <height>25</height>
+        <height>24</height>
         <cellsize>24</cellsize>
-        <startx>12</startx>
-        <starty>20</starty>
-        <finishx>12</finishx>
-        <finishy>7</finishy>
+        <agents>
+            <agentdata start.x="1" start.y="1" finish.x="10" finish.y="10"/>
+            <agentdata start.x="2" start.y="2" finish.x="15" finish.y="10"/>
+            <agentdata start.x="3" start.y="3" finish.x="14" finish.y="10"/>
+            <agentdata start.x="9" start.y="4" finish.x="13" finish.y="10"/>
+            <agentdata start.x="4" start.y="4" finish.x="14" finish.y="9"/>
+            <agentdata start.x="5" start.y="4" finish.x="15" finish.y="9"/>
+            <agentdata start.x="6" start.y="4" finish.x="16" finish.y="9"/>
+            <agentdata start.x="7" start.y="4" finish.x="17" finish.y="9"/>
+            <agentdata start.x="1" start.y="11" finish.x="1" finish.y="1"/>
+            <agentdata start.x="2" start.y="11" finish.x="2" finish.y="2"/>
+            <agentdata start.x="3" start.y="11" finish.x="3" finish.y="3"/>
+            <agentdata start.x="4" start.y="11" finish.x="4" finish.y="4"/>
+            <agentdata start.x="5" start.y="11" finish.x="10" finish.y="4"/>
+            <agentdata start.x="6" start.y="11" finish.x="9" finish.y="3"/>
+            <agentdata start.x="7" start.y="11" finish.x="8" finish.y="2"/>
+            <agentdata start.x="8" start.y="11" finish.x="7" finish.y="1"/>
+            <agentdata start.x="9" start.y="16" finish.x="16" finish.y="16"/>
+            <agentdata start.x="9" start.y="17" finish.x="16" finish.y="17"/>
+            <agentdata start.x="9" start.y="18" finish.x="16" finish.y="18"/>
+            <agentdata start.x="9" start.y="19" finish.x="16" finish.y="19"/>
+            <agentdata start.x="9" start.y="20" finish.x="16" finish.y="20"/>
+            <agentdata start.x="9" start.y="21" finish.x="16" finish.y="21"/>
+            <agentdata start.x="9" start.y="22" finish.x="16" finish.y="22"/>
+            <agentdata start.x="10" start.y="16" finish.x="15" finish.y="16"/>
+            <agentdata start.x="10" start.y="17" finish.x="15" finish.y="17"/>
+            <agentdata start.x="10" start.y="18" finish.x="15" finish.y="18"/>
+            <agentdata start.x="10" start.y="19" finish.x="15" finish.y="19"/>
+            <agentdata start.x="10" start.y="20" finish.x="15" finish.y="20"/>
+            <agentdata start.x="10" start.y="21" finish.x="15" finish.y="21"/>
+            <agentdata start.x="10" start.y="22" finish.x="15" finish.y="22"/>
+            <agentdata start.x="16" start.y="16" finish.x="9" finish.y="16"/>
+            <agentdata start.x="16" start.y="17" finish.x="9" finish.y="17"/>
+            <agentdata start.x="16" start.y="18" finish.x="9" finish.y="18"/>
+            <agentdata start.x="16" start.y="19" finish.x="9" finish.y="19"/>
+            <agentdata start.x="16" start.y="20" finish.x="9" finish.y="20"/>
+            <agentdata start.x="16" start.y="21" finish.x="9" finish.y="21"/>
+            <agentdata start.x="16" start.y="22" finish.x="9" finish.y="22"/>
+            <agentdata start.x="15" start.y="16" finish.x="10" finish.y="16"/>
+            <agentdata start.x="15" start.y="17" finish.x="10" finish.y="17"/>
+            <agentdata start.x="15" start.y="18" finish.x="10" finish.y="18"/>
+            <agentdata start.x="15" start.y="19" finish.x="10" finish.y="19"/>
+            <agentdata start.x="15" start.y="20" finish.x="10" finish.y="20"/>
+            <agentdata start.x="15" start.y="21" finish.x="10" finish.y="21"/>
+            <agentdata start.x="15" start.y="22" finish.x="10" finish.y="22"/>
+        </agents>
         <grid>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
+            <row>0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
@@ -37,24 +78,911 @@
         </grid>
     </map>
     <algorithm>
-        <searchtype>astar</searchtype>
-        <metrictype>diagonal</metrictype>
-        <breakingties>g-max</breakingties>
+        <agentpriority>heuristic-max</agentpriority>
+        <metrictype>Manhattan</metrictype>
+        <blockstartduration>0</blockstartduration>
         <hweight>1</hweight>
-        <allowdiagonal>true</allowdiagonal>
-        <cutcorners>true</cutcorners>
-        <allowsqueeze>true</allowsqueeze>
+        <breakingties>g-max</breakingties>
     </algorithm>
     <options>
-        <loglevel>1</loglevel>
+        <loglevel>2</loglevel>
         <logpath/>
         <logfilename/>
     </options>
     <log>
-        <mapfilename>../example/example.xml</mapfilename>
-        <summary numberofsteps="0" nodescreated="0" length="0" length_scaled="0" time="0.000000"/>
-        <path>Path NOT found!</path>
-        <lplevel/>
-        <hplevel/>
+        <mapfilename>/Users/alex/Desktop/Учеба/Проект 2 курс/Multi-Agent-Pathfinding/Examples/example.xml</mapfilename>
+        <lowlevel/>
+        <summary solution_found="true" cost="766" runtime="0.020441999999999998"/>
+        <agent number="1">
+            <summary trajectory_found="true" numberofsteps="390" nodescreated="417" trajectory_execution_time="21" runtime="0.000601"/>
+            <trajectory>
+                <action start_time="0" finish.x="1" finish.y="2"/>
+                <action start_time="1" finish.x="1" finish.y="3"/>
+                <action start_time="3" finish.x="1" finish.y="4"/>
+                <action start_time="4" finish.x="0" finish.y="4"/>
+                <action start_time="5" finish.x="0" finish.y="5"/>
+                <action start_time="6" finish.x="0" finish.y="6"/>
+                <action start_time="7" finish.x="1" finish.y="6"/>
+                <action start_time="8" finish.x="2" finish.y="6"/>
+                <action start_time="9" finish.x="3" finish.y="6"/>
+                <action start_time="10" finish.x="4" finish.y="6"/>
+                <action start_time="11" finish.x="5" finish.y="6"/>
+                <action start_time="12" finish.x="6" finish.y="6"/>
+                <action start_time="13" finish.x="7" finish.y="6"/>
+                <action start_time="14" finish.x="8" finish.y="6"/>
+                <action start_time="15" finish.x="9" finish.y="6"/>
+                <action start_time="16" finish.x="10" finish.y="6"/>
+                <action start_time="17" finish.x="10" finish.y="7"/>
+                <action start_time="18" finish.x="10" finish.y="8"/>
+                <action start_time="19" finish.x="10" finish.y="9"/>
+                <action start_time="20" finish.x="10" finish.y="10"/>
+            </trajectory>
+        </agent>
+        <agent number="2">
+            <summary trajectory_found="true" numberofsteps="299" nodescreated="335" trajectory_execution_time="25" runtime="0.000493"/>
+            <trajectory>
+                <action start_time="0" finish.x="2" finish.y="3"/>
+                <action start_time="1" finish.x="2" finish.y="4"/>
+                <action start_time="2" finish.x="1" finish.y="4"/>
+                <action start_time="3" finish.x="0" finish.y="4"/>
+                <action start_time="4" finish.x="0" finish.y="5"/>
+                <action start_time="5" finish.x="0" finish.y="6"/>
+                <action start_time="6" finish.x="1" finish.y="6"/>
+                <action start_time="7" finish.x="2" finish.y="6"/>
+                <action start_time="8" finish.x="3" finish.y="6"/>
+                <action start_time="9" finish.x="4" finish.y="6"/>
+                <action start_time="10" finish.x="5" finish.y="6"/>
+                <action start_time="11" finish.x="6" finish.y="6"/>
+                <action start_time="12" finish.x="7" finish.y="6"/>
+                <action start_time="13" finish.x="8" finish.y="6"/>
+                <action start_time="14" finish.x="9" finish.y="6"/>
+                <action start_time="15" finish.x="10" finish.y="6"/>
+                <action start_time="16" finish.x="11" finish.y="6"/>
+                <action start_time="17" finish.x="12" finish.y="6"/>
+                <action start_time="18" finish.x="13" finish.y="6"/>
+                <action start_time="19" finish.x="14" finish.y="6"/>
+                <action start_time="20" finish.x="15" finish.y="6"/>
+                <action start_time="21" finish.x="15" finish.y="7"/>
+                <action start_time="22" finish.x="15" finish.y="8"/>
+                <action start_time="23" finish.x="15" finish.y="9"/>
+                <action start_time="24" finish.x="15" finish.y="10"/>
+            </trajectory>
+        </agent>
+        <agent number="3">
+            <summary trajectory_found="true" numberofsteps="303" nodescreated="337" trajectory_execution_time="26" runtime="0.000427"/>
+            <trajectory>
+                <action start_time="0" finish.x="3" finish.y="4"/>
+                <action start_time="2" finish.x="2" finish.y="4"/>
+                <action start_time="4" finish.x="1" finish.y="4"/>
+                <action start_time="5" finish.x="0" finish.y="4"/>
+                <action start_time="6" finish.x="0" finish.y="5"/>
+                <action start_time="7" finish.x="0" finish.y="6"/>
+                <action start_time="8" finish.x="1" finish.y="6"/>
+                <action start_time="9" finish.x="2" finish.y="6"/>
+                <action start_time="10" finish.x="3" finish.y="6"/>
+                <action start_time="11" finish.x="4" finish.y="6"/>
+                <action start_time="12" finish.x="5" finish.y="6"/>
+                <action start_time="13" finish.x="6" finish.y="6"/>
+                <action start_time="14" finish.x="7" finish.y="6"/>
+                <action start_time="15" finish.x="8" finish.y="6"/>
+                <action start_time="16" finish.x="9" finish.y="6"/>
+                <action start_time="17" finish.x="10" finish.y="6"/>
+                <action start_time="18" finish.x="11" finish.y="6"/>
+                <action start_time="19" finish.x="12" finish.y="6"/>
+                <action start_time="20" finish.x="13" finish.y="6"/>
+                <action start_time="21" finish.x="14" finish.y="6"/>
+                <action start_time="22" finish.x="14" finish.y="7"/>
+                <action start_time="23" finish.x="14" finish.y="8"/>
+                <action start_time="24" finish.x="14" finish.y="9"/>
+                <action start_time="25" finish.x="14" finish.y="10"/>
+            </trajectory>
+        </agent>
+        <agent number="4">
+            <summary trajectory_found="true" numberofsteps="271" nodescreated="305" trajectory_execution_time="30" runtime="0.000397"/>
+            <trajectory>
+                <action start_time="0" finish.x="8" finish.y="4"/>
+                <action start_time="2" finish.x="7" finish.y="4"/>
+                <action start_time="4" finish.x="6" finish.y="4"/>
+                <action start_time="5" finish.x="5" finish.y="4"/>
+                <action start_time="6" finish.x="4" finish.y="4"/>
+                <action start_time="7" finish.x="3" finish.y="4"/>
+                <action start_time="8" finish.x="2" finish.y="4"/>
+                <action start_time="9" finish.x="1" finish.y="4"/>
+                <action start_time="10" finish.x="0" finish.y="4"/>
+                <action start_time="11" finish.x="0" finish.y="5"/>
+                <action start_time="12" finish.x="0" finish.y="6"/>
+                <action start_time="13" finish.x="1" finish.y="6"/>
+                <action start_time="14" finish.x="2" finish.y="6"/>
+                <action start_time="15" finish.x="3" finish.y="6"/>
+                <action start_time="16" finish.x="4" finish.y="6"/>
+                <action start_time="17" finish.x="5" finish.y="6"/>
+                <action start_time="18" finish.x="6" finish.y="6"/>
+                <action start_time="19" finish.x="7" finish.y="6"/>
+                <action start_time="20" finish.x="8" finish.y="6"/>
+                <action start_time="21" finish.x="9" finish.y="6"/>
+                <action start_time="22" finish.x="10" finish.y="6"/>
+                <action start_time="23" finish.x="11" finish.y="6"/>
+                <action start_time="24" finish.x="12" finish.y="6"/>
+                <action start_time="25" finish.x="13" finish.y="6"/>
+                <action start_time="26" finish.x="13" finish.y="7"/>
+                <action start_time="27" finish.x="13" finish.y="8"/>
+                <action start_time="28" finish.x="13" finish.y="9"/>
+                <action start_time="29" finish.x="13" finish.y="10"/>
+            </trajectory>
+        </agent>
+        <agent number="5">
+            <summary trajectory_found="true" numberofsteps="303" nodescreated="335" trajectory_execution_time="26" runtime="0.000436"/>
+            <trajectory>
+                <action start_time="2" finish.x="3" finish.y="4"/>
+                <action start_time="4" finish.x="2" finish.y="4"/>
+                <action start_time="5" finish.x="1" finish.y="4"/>
+                <action start_time="6" finish.x="0" finish.y="4"/>
+                <action start_time="7" finish.x="0" finish.y="5"/>
+                <action start_time="8" finish.x="0" finish.y="6"/>
+                <action start_time="9" finish.x="1" finish.y="6"/>
+                <action start_time="10" finish.x="2" finish.y="6"/>
+                <action start_time="11" finish.x="3" finish.y="6"/>
+                <action start_time="12" finish.x="4" finish.y="6"/>
+                <action start_time="13" finish.x="5" finish.y="6"/>
+                <action start_time="14" finish.x="6" finish.y="6"/>
+                <action start_time="15" finish.x="7" finish.y="6"/>
+                <action start_time="16" finish.x="8" finish.y="6"/>
+                <action start_time="17" finish.x="9" finish.y="6"/>
+                <action start_time="18" finish.x="10" finish.y="6"/>
+                <action start_time="19" finish.x="11" finish.y="6"/>
+                <action start_time="20" finish.x="12" finish.y="6"/>
+                <action start_time="21" finish.x="13" finish.y="6"/>
+                <action start_time="22" finish.x="14" finish.y="6"/>
+                <action start_time="23" finish.x="14" finish.y="7"/>
+                <action start_time="24" finish.x="14" finish.y="8"/>
+                <action start_time="25" finish.x="14" finish.y="9"/>
+            </trajectory>
+        </agent>
+        <agent number="6">
+            <summary trajectory_found="true" numberofsteps="300" nodescreated="333" trajectory_execution_time="28" runtime="0.000431"/>
+            <trajectory>
+                <action start_time="2" finish.x="4" finish.y="4"/>
+                <action start_time="4" finish.x="3" finish.y="4"/>
+                <action start_time="5" finish.x="2" finish.y="4"/>
+                <action start_time="6" finish.x="1" finish.y="4"/>
+                <action start_time="7" finish.x="0" finish.y="4"/>
+                <action start_time="8" finish.x="0" finish.y="5"/>
+                <action start_time="9" finish.x="0" finish.y="6"/>
+                <action start_time="10" finish.x="1" finish.y="6"/>
+                <action start_time="11" finish.x="2" finish.y="6"/>
+                <action start_time="12" finish.x="3" finish.y="6"/>
+                <action start_time="13" finish.x="4" finish.y="6"/>
+                <action start_time="14" finish.x="5" finish.y="6"/>
+                <action start_time="15" finish.x="6" finish.y="6"/>
+                <action start_time="16" finish.x="7" finish.y="6"/>
+                <action start_time="17" finish.x="8" finish.y="6"/>
+                <action start_time="18" finish.x="9" finish.y="6"/>
+                <action start_time="19" finish.x="10" finish.y="6"/>
+                <action start_time="20" finish.x="11" finish.y="6"/>
+                <action start_time="21" finish.x="12" finish.y="6"/>
+                <action start_time="22" finish.x="13" finish.y="6"/>
+                <action start_time="23" finish.x="14" finish.y="6"/>
+                <action start_time="24" finish.x="15" finish.y="6"/>
+                <action start_time="25" finish.x="15" finish.y="7"/>
+                <action start_time="26" finish.x="15" finish.y="8"/>
+                <action start_time="27" finish.x="15" finish.y="9"/>
+            </trajectory>
+        </agent>
+        <agent number="7">
+            <summary trajectory_found="true" numberofsteps="283" nodescreated="318" trajectory_execution_time="30" runtime="0.000409"/>
+            <trajectory>
+                <action start_time="2" finish.x="5" finish.y="4"/>
+                <action start_time="4" finish.x="4" finish.y="4"/>
+                <action start_time="5" finish.x="3" finish.y="4"/>
+                <action start_time="6" finish.x="2" finish.y="4"/>
+                <action start_time="7" finish.x="1" finish.y="4"/>
+                <action start_time="8" finish.x="0" finish.y="4"/>
+                <action start_time="9" finish.x="0" finish.y="5"/>
+                <action start_time="10" finish.x="0" finish.y="6"/>
+                <action start_time="11" finish.x="1" finish.y="6"/>
+                <action start_time="12" finish.x="2" finish.y="6"/>
+                <action start_time="13" finish.x="3" finish.y="6"/>
+                <action start_time="14" finish.x="4" finish.y="6"/>
+                <action start_time="15" finish.x="5" finish.y="6"/>
+                <action start_time="16" finish.x="6" finish.y="6"/>
+                <action start_time="17" finish.x="7" finish.y="6"/>
+                <action start_time="18" finish.x="8" finish.y="6"/>
+                <action start_time="19" finish.x="9" finish.y="6"/>
+                <action start_time="20" finish.x="10" finish.y="6"/>
+                <action start_time="21" finish.x="11" finish.y="6"/>
+                <action start_time="22" finish.x="12" finish.y="6"/>
+                <action start_time="23" finish.x="13" finish.y="6"/>
+                <action start_time="24" finish.x="14" finish.y="6"/>
+                <action start_time="25" finish.x="15" finish.y="6"/>
+                <action start_time="26" finish.x="16" finish.y="6"/>
+                <action start_time="27" finish.x="16" finish.y="7"/>
+                <action start_time="28" finish.x="16" finish.y="8"/>
+                <action start_time="29" finish.x="16" finish.y="9"/>
+            </trajectory>
+        </agent>
+        <agent number="8">
+            <summary trajectory_found="true" numberofsteps="266" nodescreated="302" trajectory_execution_time="32" runtime="0.000384"/>
+            <trajectory>
+                <action start_time="2" finish.x="6" finish.y="4"/>
+                <action start_time="4" finish.x="5" finish.y="4"/>
+                <action start_time="5" finish.x="4" finish.y="4"/>
+                <action start_time="6" finish.x="3" finish.y="4"/>
+                <action start_time="7" finish.x="2" finish.y="4"/>
+                <action start_time="8" finish.x="1" finish.y="4"/>
+                <action start_time="9" finish.x="0" finish.y="4"/>
+                <action start_time="10" finish.x="0" finish.y="5"/>
+                <action start_time="11" finish.x="0" finish.y="6"/>
+                <action start_time="12" finish.x="1" finish.y="6"/>
+                <action start_time="13" finish.x="2" finish.y="6"/>
+                <action start_time="14" finish.x="3" finish.y="6"/>
+                <action start_time="15" finish.x="4" finish.y="6"/>
+                <action start_time="16" finish.x="5" finish.y="6"/>
+                <action start_time="17" finish.x="6" finish.y="6"/>
+                <action start_time="18" finish.x="7" finish.y="6"/>
+                <action start_time="19" finish.x="8" finish.y="6"/>
+                <action start_time="20" finish.x="9" finish.y="6"/>
+                <action start_time="21" finish.x="10" finish.y="6"/>
+                <action start_time="22" finish.x="11" finish.y="6"/>
+                <action start_time="23" finish.x="12" finish.y="6"/>
+                <action start_time="24" finish.x="13" finish.y="6"/>
+                <action start_time="25" finish.x="14" finish.y="6"/>
+                <action start_time="26" finish.x="15" finish.y="6"/>
+                <action start_time="27" finish.x="16" finish.y="6"/>
+                <action start_time="28" finish.x="17" finish.y="6"/>
+                <action start_time="29" finish.x="17" finish.y="7"/>
+                <action start_time="30" finish.x="17" finish.y="8"/>
+                <action start_time="31" finish.x="17" finish.y="9"/>
+            </trajectory>
+        </agent>
+        <agent number="9">
+            <summary trajectory_found="true" numberofsteps="488" nodescreated="490" trajectory_execution_time="26" runtime="0.001016"/>
+            <trajectory>
+                <action start_time="0" finish.x="2" finish.y="11"/>
+                <action start_time="1" finish.x="3" finish.y="11"/>
+                <action start_time="2" finish.x="3" finish.y="10"/>
+                <action start_time="3" finish.x="3" finish.y="9"/>
+                <action start_time="4" finish.x="3" finish.y="8"/>
+                <action start_time="7" finish.x="3" finish.y="7"/>
+                <action start_time="14" finish.x="2" finish.y="7"/>
+                <action start_time="15" finish.x="2" finish.y="6"/>
+                <action start_time="17" finish.x="1" finish.y="6"/>
+                <action start_time="19" finish.x="0" finish.y="6"/>
+                <action start_time="20" finish.x="0" finish.y="5"/>
+                <action start_time="21" finish.x="0" finish.y="4"/>
+                <action start_time="22" finish.x="1" finish.y="4"/>
+                <action start_time="23" finish.x="1" finish.y="3"/>
+                <action start_time="24" finish.x="1" finish.y="2"/>
+                <action start_time="25" finish.x="1" finish.y="1"/>
+            </trajectory>
+        </agent>
+        <agent number="10">
+            <summary trajectory_found="true" numberofsteps="488" nodescreated="491" trajectory_execution_time="25" runtime="0.001011"/>
+            <trajectory>
+                <action start_time="0" finish.x="2" finish.y="10"/>
+                <action start_time="1" finish.x="1" finish.y="10"/>
+                <action start_time="2" finish.x="0" finish.y="10"/>
+                <action start_time="9" finish.x="0" finish.y="9"/>
+                <action start_time="14" finish.x="0" finish.y="8"/>
+                <action start_time="16" finish.x="0" finish.y="7"/>
+                <action start_time="18" finish.x="0" finish.y="6"/>
+                <action start_time="19" finish.x="0" finish.y="5"/>
+                <action start_time="20" finish.x="0" finish.y="4"/>
+                <action start_time="21" finish.x="1" finish.y="4"/>
+                <action start_time="22" finish.x="2" finish.y="4"/>
+                <action start_time="23" finish.x="2" finish.y="3"/>
+                <action start_time="24" finish.x="2" finish.y="2"/>
+            </trajectory>
+        </agent>
+        <agent number="11">
+            <summary trajectory_found="true" numberofsteps="484" nodescreated="488" trajectory_execution_time="24" runtime="0.001004"/>
+            <trajectory>
+                <action start_time="0" finish.x="3" finish.y="10"/>
+                <action start_time="1" finish.x="3" finish.y="9"/>
+                <action start_time="2" finish.x="2" finish.y="9"/>
+                <action start_time="5" finish.x="2" finish.y="8"/>
+                <action start_time="8" finish.x="2" finish.y="7"/>
+                <action start_time="14" finish.x="1" finish.y="7"/>
+                <action start_time="15" finish.x="1" finish.y="6"/>
+                <action start_time="17" finish.x="0" finish.y="6"/>
+                <action start_time="18" finish.x="0" finish.y="5"/>
+                <action start_time="19" finish.x="0" finish.y="4"/>
+                <action start_time="20" finish.x="1" finish.y="4"/>
+                <action start_time="21" finish.x="2" finish.y="4"/>
+                <action start_time="22" finish.x="3" finish.y="4"/>
+                <action start_time="23" finish.x="3" finish.y="3"/>
+            </trajectory>
+        </agent>
+        <agent number="12">
+            <summary trajectory_found="true" numberofsteps="477" nodescreated="482" trajectory_execution_time="22" runtime="0.000904"/>
+            <trajectory>
+                <action start_time="0" finish.x="4" finish.y="10"/>
+                <action start_time="1" finish.x="4" finish.y="9"/>
+                <action start_time="2" finish.x="4" finish.y="8"/>
+                <action start_time="3" finish.x="3" finish.y="8"/>
+                <action start_time="4" finish.x="2" finish.y="8"/>
+                <action start_time="5" finish.x="1" finish.y="8"/>
+                <action start_time="13" finish.x="1" finish.y="7"/>
+                <action start_time="14" finish.x="1" finish.y="6"/>
+                <action start_time="15" finish.x="0" finish.y="6"/>
+                <action start_time="16" finish.x="0" finish.y="5"/>
+                <action start_time="17" finish.x="0" finish.y="4"/>
+                <action start_time="18" finish.x="1" finish.y="4"/>
+                <action start_time="19" finish.x="2" finish.y="4"/>
+                <action start_time="20" finish.x="3" finish.y="4"/>
+                <action start_time="21" finish.x="4" finish.y="4"/>
+            </trajectory>
+        </agent>
+        <agent number="13">
+            <summary trajectory_found="true" numberofsteps="484" nodescreated="495" trajectory_execution_time="26" runtime="0.000878"/>
+            <trajectory>
+                <action start_time="0" finish.x="5" finish.y="10"/>
+                <action start_time="1" finish.x="5" finish.y="9"/>
+                <action start_time="2" finish.x="5" finish.y="8"/>
+                <action start_time="3" finish.x="5" finish.y="7"/>
+                <action start_time="4" finish.x="4" finish.y="7"/>
+                <action start_time="5" finish.x="3" finish.y="7"/>
+                <action start_time="6" finish.x="2" finish.y="7"/>
+                <action start_time="7" finish.x="1" finish.y="7"/>
+                <action start_time="8" finish.x="0" finish.y="7"/>
+                <action start_time="13" finish.x="0" finish.y="6"/>
+                <action start_time="14" finish.x="0" finish.y="5"/>
+                <action start_time="15" finish.x="0" finish.y="4"/>
+                <action start_time="16" finish.x="1" finish.y="4"/>
+                <action start_time="17" finish.x="2" finish.y="4"/>
+                <action start_time="18" finish.x="3" finish.y="4"/>
+                <action start_time="19" finish.x="4" finish.y="4"/>
+                <action start_time="20" finish.x="5" finish.y="4"/>
+                <action start_time="21" finish.x="6" finish.y="4"/>
+                <action start_time="22" finish.x="7" finish.y="4"/>
+                <action start_time="23" finish.x="8" finish.y="4"/>
+                <action start_time="24" finish.x="9" finish.y="4"/>
+                <action start_time="25" finish.x="10" finish.y="4"/>
+            </trajectory>
+        </agent>
+        <agent number="14">
+            <summary trajectory_found="true" numberofsteps="486" nodescreated="496" trajectory_execution_time="27" runtime="0.000857"/>
+            <trajectory>
+                <action start_time="0" finish.x="6" finish.y="10"/>
+                <action start_time="1" finish.x="6" finish.y="9"/>
+                <action start_time="2" finish.x="6" finish.y="8"/>
+                <action start_time="3" finish.x="6" finish.y="7"/>
+                <action start_time="4" finish.x="5" finish.y="7"/>
+                <action start_time="5" finish.x="4" finish.y="7"/>
+                <action start_time="6" finish.x="3" finish.y="7"/>
+                <action start_time="7" finish.x="2" finish.y="7"/>
+                <action start_time="8" finish.x="1" finish.y="7"/>
+                <action start_time="13" finish.x="0" finish.y="7"/>
+                <action start_time="14" finish.x="0" finish.y="6"/>
+                <action start_time="15" finish.x="0" finish.y="5"/>
+                <action start_time="16" finish.x="0" finish.y="4"/>
+                <action start_time="17" finish.x="1" finish.y="4"/>
+                <action start_time="18" finish.x="2" finish.y="4"/>
+                <action start_time="19" finish.x="3" finish.y="4"/>
+                <action start_time="20" finish.x="4" finish.y="4"/>
+                <action start_time="21" finish.x="5" finish.y="4"/>
+                <action start_time="22" finish.x="6" finish.y="4"/>
+                <action start_time="23" finish.x="7" finish.y="4"/>
+                <action start_time="24" finish.x="8" finish.y="4"/>
+                <action start_time="25" finish.x="9" finish.y="4"/>
+                <action start_time="26" finish.x="9" finish.y="3"/>
+            </trajectory>
+        </agent>
+        <agent number="15">
+            <summary trajectory_found="true" numberofsteps="498" nodescreated="507" trajectory_execution_time="29" runtime="0.001013"/>
+            <trajectory>
+                <action start_time="0" finish.x="7" finish.y="10"/>
+                <action start_time="1" finish.x="7" finish.y="9"/>
+                <action start_time="2" finish.x="6" finish.y="9"/>
+                <action start_time="3" finish.x="5" finish.y="9"/>
+                <action start_time="4" finish.x="4" finish.y="9"/>
+                <action start_time="5" finish.x="3" finish.y="9"/>
+                <action start_time="6" finish.x="2" finish.y="9"/>
+                <action start_time="7" finish.x="1" finish.y="9"/>
+                <action start_time="8" finish.x="0" finish.y="9"/>
+                <action start_time="9" finish.x="0" finish.y="8"/>
+                <action start_time="14" finish.x="0" finish.y="7"/>
+                <action start_time="16" finish.x="0" finish.y="6"/>
+                <action start_time="17" finish.x="0" finish.y="5"/>
+                <action start_time="18" finish.x="0" finish.y="4"/>
+                <action start_time="19" finish.x="1" finish.y="4"/>
+                <action start_time="20" finish.x="2" finish.y="4"/>
+                <action start_time="21" finish.x="3" finish.y="4"/>
+                <action start_time="22" finish.x="3" finish.y="3"/>
+                <action start_time="23" finish.x="4" finish.y="3"/>
+                <action start_time="24" finish.x="5" finish.y="3"/>
+                <action start_time="25" finish.x="6" finish.y="3"/>
+                <action start_time="26" finish.x="7" finish.y="3"/>
+                <action start_time="27" finish.x="8" finish.y="3"/>
+                <action start_time="28" finish.x="8" finish.y="2"/>
+            </trajectory>
+        </agent>
+        <agent number="16">
+            <summary trajectory_found="true" numberofsteps="580" nodescreated="586" trajectory_execution_time="35" runtime="0.001223"/>
+            <trajectory>
+                <action start_time="0" finish.x="8" finish.y="10"/>
+                <action start_time="1" finish.x="8" finish.y="9"/>
+                <action start_time="2" finish.x="8" finish.y="8"/>
+                <action start_time="3" finish.x="7" finish.y="8"/>
+                <action start_time="4" finish.x="6" finish.y="8"/>
+                <action start_time="5" finish.x="5" finish.y="8"/>
+                <action start_time="6" finish.x="4" finish.y="8"/>
+                <action start_time="7" finish.x="3" finish.y="8"/>
+                <action start_time="8" finish.x="2" finish.y="8"/>
+                <action start_time="13" finish.x="1" finish.y="8"/>
+                <action start_time="15" finish.x="1" finish.y="7"/>
+                <action start_time="18" finish.x="0" finish.y="7"/>
+                <action start_time="20" finish.x="0" finish.y="6"/>
+                <action start_time="21" finish.x="0" finish.y="5"/>
+                <action start_time="22" finish.x="0" finish.y="4"/>
+                <action start_time="23" finish.x="0" finish.y="3"/>
+                <action start_time="24" finish.x="0" finish.y="2"/>
+                <action start_time="25" finish.x="0" finish.y="1"/>
+                <action start_time="26" finish.x="0" finish.y="0"/>
+                <action start_time="27" finish.x="1" finish.y="0"/>
+                <action start_time="28" finish.x="2" finish.y="0"/>
+                <action start_time="29" finish.x="3" finish.y="0"/>
+                <action start_time="30" finish.x="4" finish.y="0"/>
+                <action start_time="31" finish.x="5" finish.y="0"/>
+                <action start_time="32" finish.x="6" finish.y="0"/>
+                <action start_time="33" finish.x="7" finish.y="0"/>
+                <action start_time="34" finish.x="7" finish.y="1"/>
+            </trajectory>
+        </agent>
+        <agent number="17">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000016"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="16"/>
+                <action start_time="1" finish.x="11" finish.y="16"/>
+                <action start_time="2" finish.x="12" finish.y="16"/>
+                <action start_time="3" finish.x="13" finish.y="16"/>
+                <action start_time="4" finish.x="14" finish.y="16"/>
+                <action start_time="5" finish.x="15" finish.y="16"/>
+                <action start_time="6" finish.x="16" finish.y="16"/>
+            </trajectory>
+        </agent>
+        <agent number="18">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000016"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="17"/>
+                <action start_time="1" finish.x="11" finish.y="17"/>
+                <action start_time="2" finish.x="12" finish.y="17"/>
+                <action start_time="3" finish.x="13" finish.y="17"/>
+                <action start_time="4" finish.x="14" finish.y="17"/>
+                <action start_time="5" finish.x="15" finish.y="17"/>
+                <action start_time="6" finish.x="16" finish.y="17"/>
+            </trajectory>
+        </agent>
+        <agent number="19">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000016"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="18"/>
+                <action start_time="1" finish.x="11" finish.y="18"/>
+                <action start_time="2" finish.x="12" finish.y="18"/>
+                <action start_time="3" finish.x="13" finish.y="18"/>
+                <action start_time="4" finish.x="14" finish.y="18"/>
+                <action start_time="5" finish.x="15" finish.y="18"/>
+                <action start_time="6" finish.x="16" finish.y="18"/>
+            </trajectory>
+        </agent>
+        <agent number="20">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000016"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="19"/>
+                <action start_time="1" finish.x="11" finish.y="19"/>
+                <action start_time="2" finish.x="12" finish.y="19"/>
+                <action start_time="3" finish.x="13" finish.y="19"/>
+                <action start_time="4" finish.x="14" finish.y="19"/>
+                <action start_time="5" finish.x="15" finish.y="19"/>
+                <action start_time="6" finish.x="16" finish.y="19"/>
+            </trajectory>
+        </agent>
+        <agent number="21">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000016"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="20"/>
+                <action start_time="1" finish.x="11" finish.y="20"/>
+                <action start_time="2" finish.x="12" finish.y="20"/>
+                <action start_time="3" finish.x="13" finish.y="20"/>
+                <action start_time="4" finish.x="14" finish.y="20"/>
+                <action start_time="5" finish.x="15" finish.y="20"/>
+                <action start_time="6" finish.x="16" finish.y="20"/>
+            </trajectory>
+        </agent>
+        <agent number="22">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000017"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="21"/>
+                <action start_time="1" finish.x="11" finish.y="21"/>
+                <action start_time="2" finish.x="12" finish.y="21"/>
+                <action start_time="3" finish.x="13" finish.y="21"/>
+                <action start_time="4" finish.x="14" finish.y="21"/>
+                <action start_time="5" finish.x="15" finish.y="21"/>
+                <action start_time="6" finish.x="16" finish.y="21"/>
+            </trajectory>
+        </agent>
+        <agent number="23">
+            <summary trajectory_found="true" numberofsteps="7" nodescreated="23" trajectory_execution_time="7" runtime="0.000018"/>
+            <trajectory>
+                <action start_time="0" finish.x="10" finish.y="22"/>
+                <action start_time="1" finish.x="11" finish.y="22"/>
+                <action start_time="2" finish.x="12" finish.y="22"/>
+                <action start_time="3" finish.x="13" finish.y="22"/>
+                <action start_time="4" finish.x="14" finish.y="22"/>
+                <action start_time="5" finish.x="15" finish.y="22"/>
+                <action start_time="6" finish.x="16" finish.y="22"/>
+            </trajectory>
+        </agent>
+        <agent number="24">
+            <summary trajectory_found="true" numberofsteps="82" nodescreated="99" trajectory_execution_time="7" runtime="0.000139"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="16"/>
+                <action start_time="1" finish.x="12" finish.y="16"/>
+                <action start_time="2" finish.x="13" finish.y="16"/>
+                <action start_time="3" finish.x="14" finish.y="16"/>
+                <action start_time="4" finish.x="15" finish.y="16"/>
+                <action start_time="5" finish.x="15" finish.y="15"/>
+                <action start_time="6" finish.x="15" finish.y="16"/>
+            </trajectory>
+        </agent>
+        <agent number="25">
+            <summary trajectory_found="true" numberofsteps="122" nodescreated="143" trajectory_execution_time="15" runtime="0.000196"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="17"/>
+                <action start_time="1" finish.x="12" finish.y="17"/>
+                <action start_time="2" finish.x="13" finish.y="17"/>
+                <action start_time="3" finish.x="14" finish.y="17"/>
+                <action start_time="4" finish.x="15" finish.y="17"/>
+                <action start_time="5" finish.x="16" finish.y="17"/>
+                <action start_time="6" finish.x="17" finish.y="17"/>
+                <action start_time="7" finish.x="17" finish.y="16"/>
+                <action start_time="8" finish.x="17" finish.y="15"/>
+                <action start_time="9" finish.x="16" finish.y="15"/>
+                <action start_time="10" finish.x="15" finish.y="15"/>
+                <action start_time="11" finish.x="14" finish.y="15"/>
+                <action start_time="12" finish.x="14" finish.y="16"/>
+                <action start_time="13" finish.x="14" finish.y="17"/>
+                <action start_time="14" finish.x="15" finish.y="17"/>
+            </trajectory>
+        </agent>
+        <agent number="26">
+            <summary trajectory_found="true" numberofsteps="128" nodescreated="149" trajectory_execution_time="17" runtime="0.000210"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="18"/>
+                <action start_time="1" finish.x="12" finish.y="18"/>
+                <action start_time="2" finish.x="13" finish.y="18"/>
+                <action start_time="3" finish.x="14" finish.y="18"/>
+                <action start_time="4" finish.x="15" finish.y="18"/>
+                <action start_time="5" finish.x="16" finish.y="18"/>
+                <action start_time="6" finish.x="17" finish.y="18"/>
+                <action start_time="7" finish.x="17" finish.y="17"/>
+                <action start_time="8" finish.x="17" finish.y="16"/>
+                <action start_time="9" finish.x="17" finish.y="15"/>
+                <action start_time="10" finish.x="16" finish.y="15"/>
+                <action start_time="11" finish.x="15" finish.y="15"/>
+                <action start_time="12" finish.x="14" finish.y="15"/>
+                <action start_time="13" finish.x="14" finish.y="16"/>
+                <action start_time="14" finish.x="14" finish.y="17"/>
+                <action start_time="15" finish.x="14" finish.y="18"/>
+                <action start_time="16" finish.x="15" finish.y="18"/>
+            </trajectory>
+        </agent>
+        <agent number="27">
+            <summary trajectory_found="true" numberofsteps="103" nodescreated="118" trajectory_execution_time="17" runtime="0.000179"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="19"/>
+                <action start_time="1" finish.x="12" finish.y="19"/>
+                <action start_time="2" finish.x="13" finish.y="19"/>
+                <action start_time="3" finish.x="14" finish.y="19"/>
+                <action start_time="4" finish.x="15" finish.y="19"/>
+                <action start_time="5" finish.x="16" finish.y="19"/>
+                <action start_time="6" finish.x="17" finish.y="19"/>
+                <action start_time="7" finish.x="17" finish.y="20"/>
+                <action start_time="8" finish.x="17" finish.y="21"/>
+                <action start_time="9" finish.x="17" finish.y="22"/>
+                <action start_time="10" finish.x="17" finish.y="23"/>
+                <action start_time="11" finish.x="16" finish.y="23"/>
+                <action start_time="12" finish.x="15" finish.y="23"/>
+                <action start_time="13" finish.x="15" finish.y="22"/>
+                <action start_time="14" finish.x="15" finish.y="21"/>
+                <action start_time="15" finish.x="15" finish.y="20"/>
+                <action start_time="16" finish.x="15" finish.y="19"/>
+            </trajectory>
+        </agent>
+        <agent number="28">
+            <summary trajectory_found="true" numberofsteps="101" nodescreated="115" trajectory_execution_time="17" runtime="0.000162"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="20"/>
+                <action start_time="1" finish.x="12" finish.y="20"/>
+                <action start_time="2" finish.x="13" finish.y="20"/>
+                <action start_time="3" finish.x="14" finish.y="20"/>
+                <action start_time="4" finish.x="15" finish.y="20"/>
+                <action start_time="5" finish.x="16" finish.y="20"/>
+                <action start_time="6" finish.x="17" finish.y="20"/>
+                <action start_time="7" finish.x="18" finish.y="20"/>
+                <action start_time="8" finish.x="18" finish.y="21"/>
+                <action start_time="9" finish.x="18" finish.y="22"/>
+                <action start_time="10" finish.x="18" finish.y="23"/>
+                <action start_time="11" finish.x="17" finish.y="23"/>
+                <action start_time="12" finish.x="16" finish.y="23"/>
+                <action start_time="13" finish.x="15" finish.y="23"/>
+                <action start_time="14" finish.x="15" finish.y="22"/>
+                <action start_time="15" finish.x="15" finish.y="21"/>
+                <action start_time="16" finish.x="15" finish.y="20"/>
+            </trajectory>
+        </agent>
+        <agent number="29">
+            <summary trajectory_found="true" numberofsteps="92" nodescreated="106" trajectory_execution_time="17" runtime="0.000148"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="21"/>
+                <action start_time="1" finish.x="12" finish.y="21"/>
+                <action start_time="2" finish.x="13" finish.y="21"/>
+                <action start_time="3" finish.x="14" finish.y="21"/>
+                <action start_time="4" finish.x="15" finish.y="21"/>
+                <action start_time="5" finish.x="16" finish.y="21"/>
+                <action start_time="6" finish.x="17" finish.y="21"/>
+                <action start_time="7" finish.x="18" finish.y="21"/>
+                <action start_time="8" finish.x="19" finish.y="21"/>
+                <action start_time="9" finish.x="19" finish.y="22"/>
+                <action start_time="10" finish.x="19" finish.y="23"/>
+                <action start_time="11" finish.x="18" finish.y="23"/>
+                <action start_time="12" finish.x="17" finish.y="23"/>
+                <action start_time="13" finish.x="16" finish.y="23"/>
+                <action start_time="14" finish.x="15" finish.y="23"/>
+                <action start_time="15" finish.x="15" finish.y="22"/>
+                <action start_time="16" finish.x="15" finish.y="21"/>
+            </trajectory>
+        </agent>
+        <agent number="30">
+            <summary trajectory_found="true" numberofsteps="122" nodescreated="144" trajectory_execution_time="17" runtime="0.000217"/>
+            <trajectory>
+                <action start_time="0" finish.x="11" finish.y="22"/>
+                <action start_time="1" finish.x="12" finish.y="22"/>
+                <action start_time="2" finish.x="13" finish.y="22"/>
+                <action start_time="3" finish.x="14" finish.y="22"/>
+                <action start_time="4" finish.x="14" finish.y="23"/>
+                <action start_time="5" finish.x="14" finish.y="22"/>
+                <action start_time="16" finish.x="15" finish.y="22"/>
+            </trajectory>
+        </agent>
+        <agent number="31">
+            <summary trajectory_found="true" numberofsteps="256" nodescreated="285" trajectory_execution_time="11" runtime="0.000503"/>
+            <trajectory>
+                <action start_time="0" finish.x="16" finish.y="15"/>
+                <action start_time="1" finish.x="16" finish.y="14"/>
+                <action start_time="2" finish.x="15" finish.y="14"/>
+                <action start_time="3" finish.x="14" finish.y="14"/>
+                <action start_time="4" finish.x="13" finish.y="14"/>
+                <action start_time="5" finish.x="13" finish.y="15"/>
+                <action start_time="6" finish.x="12" finish.y="15"/>
+                <action start_time="7" finish.x="11" finish.y="15"/>
+                <action start_time="8" finish.x="10" finish.y="15"/>
+                <action start_time="9" finish.x="9" finish.y="15"/>
+                <action start_time="10" finish.x="9" finish.y="16"/>
+            </trajectory>
+        </agent>
+        <agent number="32">
+            <summary trajectory_found="true" numberofsteps="286" nodescreated="316" trajectory_execution_time="15" runtime="0.000563"/>
+            <trajectory>
+                <action start_time="0" finish.x="16" finish.y="16"/>
+                <action start_time="1" finish.x="16" finish.y="15"/>
+                <action start_time="4" finish.x="15" finish.y="15"/>
+                <action start_time="5" finish.x="14" finish.y="15"/>
+                <action start_time="6" finish.x="13" finish.y="15"/>
+                <action start_time="7" finish.x="12" finish.y="15"/>
+                <action start_time="8" finish.x="11" finish.y="15"/>
+                <action start_time="9" finish.x="10" finish.y="15"/>
+                <action start_time="10" finish.x="9" finish.y="15"/>
+                <action start_time="11" finish.x="8" finish.y="15"/>
+                <action start_time="12" finish.x="8" finish.y="16"/>
+                <action start_time="13" finish.x="8" finish.y="17"/>
+                <action start_time="14" finish.x="9" finish.y="17"/>
+            </trajectory>
+        </agent>
+        <agent number="33">
+            <summary trajectory_found="true" numberofsteps="273" nodescreated="299" trajectory_execution_time="17" runtime="0.000546"/>
+            <trajectory>
+                <action start_time="0" finish.x="16" finish.y="19"/>
+                <action start_time="1" finish.x="16" finish.y="20"/>
+                <action start_time="2" finish.x="16" finish.y="21"/>
+                <action start_time="3" finish.x="16" finish.y="22"/>
+                <action start_time="4" finish.x="16" finish.y="23"/>
+                <action start_time="5" finish.x="15" finish.y="23"/>
+                <action start_time="6" finish.x="14" finish.y="23"/>
+                <action start_time="7" finish.x="13" finish.y="23"/>
+                <action start_time="8" finish.x="12" finish.y="23"/>
+                <action start_time="9" finish.x="11" finish.y="23"/>
+                <action start_time="10" finish.x="10" finish.y="23"/>
+                <action start_time="11" finish.x="9" finish.y="23"/>
+                <action start_time="12" finish.x="9" finish.y="22"/>
+                <action start_time="13" finish.x="9" finish.y="21"/>
+                <action start_time="14" finish.x="9" finish.y="20"/>
+                <action start_time="15" finish.x="9" finish.y="19"/>
+                <action start_time="16" finish.x="9" finish.y="18"/>
+            </trajectory>
+        </agent>
+        <agent number="34">
+            <summary trajectory_found="true" numberofsteps="273" nodescreated="299" trajectory_execution_time="17" runtime="0.000550"/>
+            <trajectory>
+                <action start_time="0" finish.x="17" finish.y="19"/>
+                <action start_time="1" finish.x="17" finish.y="20"/>
+                <action start_time="2" finish.x="17" finish.y="21"/>
+                <action start_time="3" finish.x="17" finish.y="22"/>
+                <action start_time="4" finish.x="17" finish.y="23"/>
+                <action start_time="5" finish.x="16" finish.y="23"/>
+                <action start_time="6" finish.x="15" finish.y="23"/>
+                <action start_time="7" finish.x="14" finish.y="23"/>
+                <action start_time="8" finish.x="13" finish.y="23"/>
+                <action start_time="9" finish.x="12" finish.y="23"/>
+                <action start_time="10" finish.x="11" finish.y="23"/>
+                <action start_time="11" finish.x="10" finish.y="23"/>
+                <action start_time="12" finish.x="9" finish.y="23"/>
+                <action start_time="13" finish.x="9" finish.y="22"/>
+                <action start_time="14" finish.x="9" finish.y="21"/>
+                <action start_time="15" finish.x="9" finish.y="20"/>
+                <action start_time="16" finish.x="9" finish.y="19"/>
+            </trajectory>
+        </agent>
+        <agent number="35">
+            <summary trajectory_found="true" numberofsteps="258" nodescreated="280" trajectory_execution_time="17" runtime="0.000518"/>
+            <trajectory>
+                <action start_time="0" finish.x="17" finish.y="20"/>
+                <action start_time="1" finish.x="18" finish.y="20"/>
+                <action start_time="2" finish.x="18" finish.y="21"/>
+                <action start_time="3" finish.x="18" finish.y="22"/>
+                <action start_time="4" finish.x="18" finish.y="23"/>
+                <action start_time="5" finish.x="17" finish.y="23"/>
+                <action start_time="6" finish.x="16" finish.y="23"/>
+                <action start_time="7" finish.x="15" finish.y="23"/>
+                <action start_time="8" finish.x="14" finish.y="23"/>
+                <action start_time="9" finish.x="13" finish.y="23"/>
+                <action start_time="10" finish.x="12" finish.y="23"/>
+                <action start_time="11" finish.x="11" finish.y="23"/>
+                <action start_time="12" finish.x="10" finish.y="23"/>
+                <action start_time="13" finish.x="9" finish.y="23"/>
+                <action start_time="14" finish.x="9" finish.y="22"/>
+                <action start_time="15" finish.x="9" finish.y="21"/>
+                <action start_time="16" finish.x="9" finish.y="20"/>
+            </trajectory>
+        </agent>
+        <agent number="36">
+            <summary trajectory_found="true" numberofsteps="213" nodescreated="233" trajectory_execution_time="17" runtime="0.000425"/>
+            <trajectory>
+                <action start_time="0" finish.x="17" finish.y="21"/>
+                <action start_time="1" finish.x="18" finish.y="21"/>
+                <action start_time="2" finish.x="19" finish.y="21"/>
+                <action start_time="3" finish.x="19" finish.y="22"/>
+                <action start_time="4" finish.x="19" finish.y="23"/>
+                <action start_time="5" finish.x="18" finish.y="23"/>
+                <action start_time="6" finish.x="17" finish.y="23"/>
+                <action start_time="7" finish.x="16" finish.y="23"/>
+                <action start_time="8" finish.x="15" finish.y="23"/>
+                <action start_time="9" finish.x="14" finish.y="23"/>
+                <action start_time="10" finish.x="13" finish.y="23"/>
+                <action start_time="11" finish.x="12" finish.y="23"/>
+                <action start_time="12" finish.x="11" finish.y="23"/>
+                <action start_time="13" finish.x="10" finish.y="23"/>
+                <action start_time="14" finish.x="9" finish.y="23"/>
+                <action start_time="15" finish.x="9" finish.y="22"/>
+                <action start_time="16" finish.x="9" finish.y="21"/>
+            </trajectory>
+        </agent>
+        <agent number="37">
+            <summary trajectory_found="true" numberofsteps="196" nodescreated="216" trajectory_execution_time="17" runtime="0.000387"/>
+            <trajectory>
+                <action start_time="0" finish.x="16" finish.y="23"/>
+                <action start_time="3" finish.x="15" finish.y="23"/>
+                <action start_time="5" finish.x="14" finish.y="23"/>
+                <action start_time="6" finish.x="13" finish.y="23"/>
+                <action start_time="7" finish.x="12" finish.y="23"/>
+                <action start_time="8" finish.x="11" finish.y="23"/>
+                <action start_time="9" finish.x="10" finish.y="23"/>
+                <action start_time="10" finish.x="9" finish.y="23"/>
+                <action start_time="11" finish.x="9" finish.y="22"/>
+                <action start_time="12" finish.x="8" finish.y="22"/>
+                <action start_time="16" finish.x="9" finish.y="22"/>
+            </trajectory>
+        </agent>
+        <agent number="38">
+            <summary trajectory_found="true" numberofsteps="203" nodescreated="231" trajectory_execution_time="7" runtime="0.000380"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="15"/>
+                <action start_time="1" finish.x="14" finish.y="15"/>
+                <action start_time="2" finish.x="13" finish.y="15"/>
+                <action start_time="3" finish.x="12" finish.y="15"/>
+                <action start_time="4" finish.x="12" finish.y="16"/>
+                <action start_time="5" finish.x="11" finish.y="16"/>
+                <action start_time="6" finish.x="10" finish.y="16"/>
+            </trajectory>
+        </agent>
+        <agent number="39">
+            <summary trajectory_found="true" numberofsteps="221" nodescreated="248" trajectory_execution_time="9" runtime="0.000429"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="16"/>
+                <action start_time="1" finish.x="15" finish.y="15"/>
+                <action start_time="2" finish.x="14" finish.y="15"/>
+                <action start_time="3" finish.x="13" finish.y="15"/>
+                <action start_time="4" finish.x="13" finish.y="16"/>
+                <action start_time="5" finish.x="13" finish.y="17"/>
+                <action start_time="6" finish.x="12" finish.y="17"/>
+                <action start_time="7" finish.x="11" finish.y="17"/>
+                <action start_time="8" finish.x="10" finish.y="17"/>
+            </trajectory>
+        </agent>
+        <agent number="40">
+            <summary trajectory_found="true" numberofsteps="224" nodescreated="249" trajectory_execution_time="11" runtime="0.000434"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="17"/>
+                <action start_time="1" finish.x="15" finish.y="16"/>
+                <action start_time="2" finish.x="15" finish.y="15"/>
+                <action start_time="3" finish.x="14" finish.y="15"/>
+                <action start_time="4" finish.x="13" finish.y="15"/>
+                <action start_time="5" finish.x="13" finish.y="16"/>
+                <action start_time="6" finish.x="13" finish.y="17"/>
+                <action start_time="7" finish.x="13" finish.y="18"/>
+                <action start_time="8" finish.x="12" finish.y="18"/>
+                <action start_time="9" finish.x="11" finish.y="18"/>
+                <action start_time="10" finish.x="10" finish.y="18"/>
+            </trajectory>
+        </agent>
+        <agent number="41">
+            <summary trajectory_found="true" numberofsteps="222" nodescreated="246" trajectory_execution_time="13" runtime="0.000437"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="18"/>
+                <action start_time="1" finish.x="15" finish.y="17"/>
+                <action start_time="2" finish.x="15" finish.y="16"/>
+                <action start_time="3" finish.x="15" finish.y="15"/>
+                <action start_time="4" finish.x="14" finish.y="15"/>
+                <action start_time="5" finish.x="14" finish.y="16"/>
+                <action start_time="6" finish.x="14" finish.y="17"/>
+                <action start_time="7" finish.x="14" finish.y="18"/>
+                <action start_time="8" finish.x="14" finish.y="19"/>
+                <action start_time="9" finish.x="13" finish.y="19"/>
+                <action start_time="10" finish.x="12" finish.y="19"/>
+                <action start_time="11" finish.x="11" finish.y="19"/>
+                <action start_time="12" finish.x="10" finish.y="19"/>
+            </trajectory>
+        </agent>
+        <agent number="42">
+            <summary trajectory_found="true" numberofsteps="189" nodescreated="216" trajectory_execution_time="11" runtime="0.000361"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="21"/>
+                <action start_time="1" finish.x="15" finish.y="22"/>
+                <action start_time="2" finish.x="15" finish.y="23"/>
+                <action start_time="3" finish.x="14" finish.y="23"/>
+                <action start_time="4" finish.x="13" finish.y="23"/>
+                <action start_time="5" finish.x="13" finish.y="22"/>
+                <action start_time="6" finish.x="13" finish.y="21"/>
+                <action start_time="7" finish.x="13" finish.y="20"/>
+                <action start_time="8" finish.x="12" finish.y="20"/>
+                <action start_time="9" finish.x="11" finish.y="20"/>
+                <action start_time="10" finish.x="10" finish.y="20"/>
+            </trajectory>
+        </agent>
+        <agent number="43">
+            <summary trajectory_found="true" numberofsteps="154" nodescreated="179" trajectory_execution_time="9" runtime="0.000298"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="22"/>
+                <action start_time="1" finish.x="15" finish.y="23"/>
+                <action start_time="2" finish.x="14" finish.y="23"/>
+                <action start_time="3" finish.x="13" finish.y="23"/>
+                <action start_time="4" finish.x="13" finish.y="22"/>
+                <action start_time="5" finish.x="13" finish.y="21"/>
+                <action start_time="6" finish.x="12" finish.y="21"/>
+                <action start_time="7" finish.x="11" finish.y="21"/>
+                <action start_time="8" finish.x="10" finish.y="21"/>
+            </trajectory>
+        </agent>
+        <agent number="44">
+            <summary trajectory_found="true" numberofsteps="112" nodescreated="133" trajectory_execution_time="7" runtime="0.000220"/>
+            <trajectory>
+                <action start_time="0" finish.x="15" finish.y="23"/>
+                <action start_time="1" finish.x="14" finish.y="23"/>
+                <action start_time="2" finish.x="13" finish.y="23"/>
+                <action start_time="3" finish.x="12" finish.y="23"/>
+                <action start_time="4" finish.x="12" finish.y="22"/>
+                <action start_time="5" finish.x="11" finish.y="22"/>
+                <action start_time="6" finish.x="10" finish.y="22"/>
+            </trajectory>
+        </agent>
     </log>
 </root>

@@ -3,16 +3,14 @@
 EnvironmentOptions::EnvironmentOptions()
 {
     metrictype = CN_SP_MT_EUCL;
-    allowsqueeze = false;
-    allowdiagonal = true;
-    cutcorners = false;
 }
 
-EnvironmentOptions::EnvironmentOptions(bool AS, bool AD, bool CC, int MT)
-{
-    metrictype = MT;
-    allowsqueeze = AS;
-    allowdiagonal = AD;
-    cutcorners = CC;
-}
+EnvironmentOptions::EnvironmentOptions(int AL, double HW, int AP, int BS, int BT, int MT)
+        : algorithm(AL),
+          hweight(HW),
+          agentpriority(AP),
+          blockstart(BS),
+          breakingties(BT),
+          metrictype(MT)
+{}
 

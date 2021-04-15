@@ -5,19 +5,24 @@ set(HEADERS         config.h
                     ilogger.h
                     map.h
                     mission.h
-                    node.h
+                    basicstructures.h
                     search.h
+        searchstructures.h
                     searchresult.h
                     tinyxml2.h
-                    xmllogger.h)
+                    xmllogger.h
+                    heuristics.h)
 
 set(SOURCES         config.cpp
                     environmentoptions.cpp
                     map.cpp
                     mission.cpp
                     search.cpp
+        searchstructures.cpp
                     tinyxml2.cpp
-                    xmllogger.cpp)
+                    xmllogger.cpp
+                    heuristics.cpp
+                    basicstructures.cpp)
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} main.cpp)
 

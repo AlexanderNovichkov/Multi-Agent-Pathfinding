@@ -2,28 +2,80 @@
 <root>
     <map>
         <width>25</width>
-        <height>25</height>
+        <height>24</height>
         <cellsize>24</cellsize>
-        <startx>12</startx>
-        <starty>20</starty>
-        <finishx>12</finishx>
-        <finishy>7</finishy>
+        <agents>
+            <agentdata start.x="1" start.y="1" finish.x="10" finish.y="10"></agentdata>
+            <agentdata start.x="2" start.y="2" finish.x="15" finish.y="10"></agentdata>
+            <agentdata start.x="3" start.y="3" finish.x="14" finish.y="10"></agentdata>
+            <agentdata start.x="9" start.y="4" finish.x="13" finish.y="10"></agentdata>
+            <agentdata start.x="4" start.y="4" finish.x="14" finish.y="9"></agentdata>
+            <agentdata start.x="5" start.y="4" finish.x="15" finish.y="9"></agentdata>
+            <agentdata start.x="6" start.y="4" finish.x="16" finish.y="9"></agentdata>
+            <agentdata start.x="7" start.y="4" finish.x="17" finish.y="9"></agentdata>
+
+            <agentdata start.x="1" start.y="11" finish.x="1" finish.y="1"></agentdata>
+            <agentdata start.x="2" start.y="11" finish.x="2" finish.y="2"></agentdata>
+            <agentdata start.x="3" start.y="11" finish.x="3" finish.y="3"></agentdata>
+            <agentdata start.x="4" start.y="11" finish.x="4" finish.y="4"></agentdata>
+            <agentdata start.x="5" start.y="11" finish.x="10" finish.y="4"></agentdata>
+            <agentdata start.x="6" start.y="11" finish.x="9" finish.y="3"></agentdata>
+            <agentdata start.x="7" start.y="11" finish.x="8" finish.y="2"></agentdata>
+            <agentdata start.x="8" start.y="11" finish.x="7" finish.y="1"></agentdata>
+
+
+
+            <agentdata start.x="9" start.y="16" finish.x="16" finish.y="16"></agentdata>
+            <agentdata start.x="9" start.y="17" finish.x="16" finish.y="17"></agentdata>
+            <agentdata start.x="9" start.y="18" finish.x="16" finish.y="18"></agentdata>
+            <agentdata start.x="9" start.y="19" finish.x="16" finish.y="19"></agentdata>
+            <agentdata start.x="9" start.y="20" finish.x="16" finish.y="20"></agentdata>
+            <agentdata start.x="9" start.y="21" finish.x="16" finish.y="21"></agentdata>
+            <agentdata start.x="9" start.y="22" finish.x="16" finish.y="22"></agentdata>
+
+            <agentdata start.x="10" start.y="16" finish.x="15" finish.y="16"></agentdata>
+            <agentdata start.x="10" start.y="17" finish.x="15" finish.y="17"></agentdata>
+            <agentdata start.x="10" start.y="18" finish.x="15" finish.y="18"></agentdata>
+            <agentdata start.x="10" start.y="19" finish.x="15" finish.y="19"></agentdata>
+            <agentdata start.x="10" start.y="20" finish.x="15" finish.y="20"></agentdata>
+            <agentdata start.x="10" start.y="21" finish.x="15" finish.y="21"></agentdata>
+            <agentdata start.x="10" start.y="22" finish.x="15" finish.y="22"></agentdata>
+
+
+            <agentdata start.x="16" start.y="16" finish.x="9" finish.y="16"></agentdata>
+            <agentdata start.x="16" start.y="17" finish.x="9" finish.y="17"></agentdata>
+            <agentdata start.x="16" start.y="18" finish.x="9" finish.y="18"></agentdata>
+            <agentdata start.x="16" start.y="19" finish.x="9" finish.y="19"></agentdata>
+            <agentdata start.x="16" start.y="20" finish.x="9" finish.y="20"></agentdata>
+            <agentdata start.x="16" start.y="21" finish.x="9" finish.y="21"></agentdata>
+            <agentdata start.x="16" start.y="22" finish.x="9" finish.y="22"></agentdata>
+
+            <agentdata start.x="15" start.y="16" finish.x="10" finish.y="16"></agentdata>
+            <agentdata start.x="15" start.y="17" finish.x="10" finish.y="17"></agentdata>
+            <agentdata start.x="15" start.y="18" finish.x="10" finish.y="18"></agentdata>
+            <agentdata start.x="15" start.y="19" finish.x="10" finish.y="19"></agentdata>
+            <agentdata start.x="15" start.y="20" finish.x="10" finish.y="20"></agentdata>
+            <agentdata start.x="15" start.y="21" finish.x="10" finish.y="21"></agentdata>
+            <agentdata start.x="15" start.y="22" finish.x="10" finish.y="22"></agentdata>
+
+
+
+        </agents>
         <grid>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 1 1 1 1 1 1 1 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
-            <row>0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0</row>
+            <row>0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
+            <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
             <row>0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</row>
@@ -37,17 +89,15 @@
         </grid>
     </map>
     <algorithm>
-        <searchtype>astar</searchtype>
-        <metrictype>diagonal</metrictype>
-        <breakingties>g-max</breakingties>
+        <agentpriority>heuristic-max</agentpriority>
+        <metrictype>Manhattan</metrictype>
+        <blockstartduration>0</blockstartduration>
         <hweight>1</hweight>
-        <allowdiagonal>true</allowdiagonal>
-        <cutcorners>true</cutcorners>
-        <allowsqueeze>true</allowsqueeze>
+        <breakingties>g-max</breakingties>
     </algorithm>
     <options>
-        <loglevel>1</loglevel>
-        <logpath />
-        <logfilename />
+        <loglevel>2</loglevel>
+        <logpath/>
+        <logfilename/>
     </options>
 </root>

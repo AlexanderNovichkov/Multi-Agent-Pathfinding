@@ -1,41 +1,60 @@
 #ifndef SEARCH_H
 #define SEARCH_H
+
 #include "ilogger.h"
 #include "searchresult.h"
 #include "environmentoptions.h"
+#include "searchstructures.h"
+#include "heuristics.h"
 #include <list>
 #include <vector>
-#include <math.h>
+#include <cmath>
 #include <limits>
 #include <chrono>
+#include <unordered_map>
+
 
 class Search
 {
-    public:
-        Search();
-        ~Search(void);
-        SearchResult startSearch(ILogger *Logger, const Map &Map, const EnvironmentOptions &options);
+public:
+    Search();
 
-    protected:
-        //CODE HERE
+    ~Search(void);
 
-        //Hint 1. You definetely need class variables for OPEN and CLOSE
+    SearchResult startSearch(ILogger *Logger, const Map &Map, const EnvironmentOptions &options);
 
-        //Hint 2. It's a good idea to define a heuristic calculation function, that will simply return 0
-        //for non-heuristic search methods like Dijkstra
+protected:
 
-        //Hint 3. It's a good idea to define function that given a node (and other stuff needed)
-        //will return it's sucessors, e.g. unordered list of nodes
+    void sortByHeuristic(std::vector<int> *order, const Heuristic &heuristic, const Map &map, bool rev);
 
-        //Hint 4. working with OPEN and CLOSE is the core
-        //so think of the data structures that needed to be used, about the wrap-up classes (if needed)
-        //Start with very simple (and ineffective) structures like list or vector and make it work first
-        //and only then begin enhancement!
+    Trajectory makeTrajectory(const Node *node);
+
+    std::vector<Node> getSucessors(Node *parentNode, const Point &goal,
+                                   const Map &map, const Heuristic &heuristic,
+                                   std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
+                                   const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges);
+
+    int getMinTimeWithoutSwapConflicts(const Point &a, const Point &b, int start_time, int end_time,
+                                       const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges) const;
+
+    void updateSafeIntervals(const Point &startPoint, const Trajectory &trajectory,
+                             std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals);
 
 
-        SearchResult                    sresult; //This will store the search result
-        std::list<Node>                 lppath, hppath; //
+    void updateEdges(const Point &startPoint, const Trajectory &trajectory,
+                     std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges);
 
-        //CODE HERE to define other members of the class
+    AgentSearchResult
+    findAgentTrajectory(int agentId, const Map &map, const EnvironmentOptions &options, const Heuristic &heuristic,
+                        std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
+                        const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges);
+
+    SearchResult findTrajectories(const Map &map, const EnvironmentOptions &options, const Heuristic &heuristic,
+                                  const std::vector<int> &order);
+
+
+    SearchResult sresult; //This will store the search result
 };
+
+
 #endif

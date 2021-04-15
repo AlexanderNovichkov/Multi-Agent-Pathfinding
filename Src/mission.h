@@ -29,7 +29,7 @@ class Mission
         void createSearch();
         void createEnvironmentOptions();
         void startSearch();
-        void printSearchResultsToConsole();
+        void printSearchResultsToConsole() const;
         void saveSearchResultsToLog();
         SearchResult getSearchResult();
         

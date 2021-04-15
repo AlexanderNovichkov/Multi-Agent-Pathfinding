@@ -1,17 +1,20 @@
 #ifndef ENVIRONMENTOPTIONS_H
 #define ENVIRONMENTOPTIONS_H
+
 #include "gl_const.h"
 
-class EnvironmentOptions
-{
+class EnvironmentOptions {
 public:
-    EnvironmentOptions(bool AS, bool AD, bool CC, int MT = CN_SP_MT_EUCL);
-    EnvironmentOptions();
-    int     metrictype;     //Can be chosen Euclidean, Manhattan, Chebyshev and Diagonal distance
-    bool    allowsqueeze;   //Option that allows to move throught "bottleneck"
-    bool    allowdiagonal;  //Option that allows to make diagonal moves
-    bool    cutcorners;     //Option that allows to make diagonal moves, when one adjacent cell is untraversable
+    EnvironmentOptions(int AL, double HW, int AP, int BS, int BT, int MT);
 
+    EnvironmentOptions();
+
+    int algorithm;
+    double hweight;
+    int agentpriority;
+    int blockstart;
+    int breakingties;
+    int metrictype;     //Can be chosen Euclidean, Manhattan, Chebyshev and Diagonal distance
 };
 
 #endif // ENVIRONMENTOPTIONS_H
