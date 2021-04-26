@@ -8,17 +8,12 @@
 #include<unordered_map>
 #include<set>
 
-// Edge
-struct Edge
-{
-    Point from, to;
-};
 
-bool operator==(const Edge &a, const Edge &b);
+bool operator==(const AgentAction &a, const AgentAction &b);
 
-struct EdgeHasher
+struct ActionHasher
 {
-    std::size_t operator()(const Edge &e) const;
+    std::size_t operator()(const AgentAction &e) const;
 };
 
 

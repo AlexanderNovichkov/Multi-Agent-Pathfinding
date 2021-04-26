@@ -1,15 +1,14 @@
 #include "searchstructures.h"
 
 
-// Edge
-std::size_t EdgeHasher::operator()(const Edge &e) const
+std::size_t ActionHasher::operator()(const AgentAction &a) const
 {
-    return PointHasher()(e.from) ^ PointHasher()(e.to);
+    return PointHasher()(a.from) ^ PointHasher()(a.to) ^ a.start_time;
 }
 
-bool operator==(const Edge &a, const Edge &b)
+bool operator==(const AgentAction &a, const AgentAction &b)
 {
-    return (a.from == b.from) && (a.to == b.to);
+    return (a.from == b.from) && (a.to == b.to) && (a.start_time == b.start_time);
 }
 
 // State

@@ -12,6 +12,7 @@
 #include <limits>
 #include <chrono>
 #include <unordered_map>
+#include <unordered_set>
 
 
 class Search
@@ -32,22 +33,22 @@ protected:
     std::vector<Node> getSucessors(Node *parentNode, const Point &goal,
                                    const Map &map, const Heuristic &heuristic,
                                    std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
-                                   const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges);
+                                   const std::unordered_set<AgentAction, ActionHasher> &actions);
 
     int getMinTimeWithoutSwapConflicts(const Point &a, const Point &b, int start_time, int end_time,
-                                       const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges) const;
+                                       const std::unordered_set<AgentAction, ActionHasher> &actions) const;
 
     void updateSafeIntervals(const Point &startPoint, const Trajectory &trajectory,
                              std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals);
 
 
-    void updateEdges(const Point &startPoint, const Trajectory &trajectory,
-                     std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges);
+    void updateActions(const Point &startPoint, const Trajectory &trajectory,
+                       std::unordered_set<AgentAction, ActionHasher> *actions);
 
     AgentSearchResult
     findAgentTrajectory(int agentId, const Map &map, const EnvironmentOptions &options, const Heuristic &heuristic,
                         std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
-                        const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges);
+                        const std::unordered_set<AgentAction, ActionHasher> &actions);
 
     SearchResult findTrajectories(const Map &map, const EnvironmentOptions &options, const Heuristic &heuristic,
                                   const std::vector<int> &order);

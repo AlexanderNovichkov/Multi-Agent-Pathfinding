@@ -6,6 +6,7 @@
 #include <chrono>
 #include<numeric>
 #include<random>
+#include <unordered_set>
 
 #include "gl_const.h"
 #include "heuristics.h"
@@ -88,8 +89,8 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
                                       const std::vector<int> &order)
 {
     std::unordered_map<Point, SafeIntervalsContainer, PointHasher> point_to_intervals;
-    // For every edge we store set of all time moments, when agents start moving on this edge
-    std::unordered_map<Edge, std::set<int>, EdgeHasher> edges;
+
+    std::unordered_set<AgentAction, ActionHasher> actions;
     SearchResult cursresult;
 
     if (options.blockstart > 0) {
@@ -106,7 +107,7 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
             point_to_intervals[map.getAgent(agent_id).start].insert(SafeInterval{0, options.blockstart - 1});
         }
         cursresult.agents_sresult[agent_id] = findAgentTrajectory(agent_id, map, options, heuristic,
-                                                                  point_to_intervals, edges);
+                                                                  point_to_intervals, actions);
         if (!cursresult.agents_sresult[agent_id].trajectory_found) {
             cursresult.solution_found = false;
         } else {
@@ -116,7 +117,7 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
 
         updateSafeIntervals(map.getAgents()[agent_id].start, cursresult.agents_sresult[agent_id].trajectory,
                             point_to_intervals);
-        updateEdges(map.getAgents()[agent_id].start, cursresult.agents_sresult[agent_id].trajectory, edges);
+        updateActions(map.getAgents()[agent_id].start, cursresult.agents_sresult[agent_id].trajectory, &actions);
     }
 
     return cursresult;
@@ -126,7 +127,7 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
 AgentSearchResult
 Search::findAgentTrajectory(int agentId, const Map &map, const EnvironmentOptions &options, const Heuristic &heuristic,
                             std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
-                            const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges)
+                            const std::unordered_set<AgentAction, ActionHasher> &actions)
 {
     if (point_to_intervals[map.getAgents()[agentId].goal].empty() ||
         point_to_intervals[map.getAgents()[agentId].start].empty()) {
@@ -163,7 +164,7 @@ Search::findAgentTrajectory(int agentId, const Map &map, const EnvironmentOption
         }
 
         std::vector<Node> sucessors = getSucessors(cur_node_ptr, goal_state.pos, map, heuristic,
-                                                   point_to_intervals, edges);
+                                                   point_to_intervals, actions);
         for (const Node &s : sucessors) {
             if (close.count(s.state)) {
                 continue;
@@ -189,7 +190,7 @@ Search::findAgentTrajectory(int agentId, const Map &map, const EnvironmentOption
 
 std::vector<Node> Search::getSucessors(Node *parentNode, const Point &goal, const Map &map, const Heuristic &heuristic,
                                        std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
-                                       const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges)
+                                       const std::unordered_set<AgentAction, ActionHasher> &actions)
 {
     static const Point diff[4] = {{0,  -1},
                                   {0,  1},
@@ -209,7 +210,7 @@ std::vector<Node> Search::getSucessors(Node *parentNode, const Point &goal, cons
             // no vertex conflicts in [vertex_min_time, vertex_max_time]
             if (vertex_min_time <= vertex_max_time) {
                 int min_time = getMinTimeWithoutSwapConflicts(parentNode->state.pos, pnew,
-                                                              vertex_min_time, vertex_max_time, edges);
+                                                              vertex_min_time, vertex_max_time, actions);
 
                 if (min_time == -1) {
                     continue;
@@ -256,22 +257,23 @@ void Search::updateSafeIntervals(const Point &startPoint, const Trajectory &traj
 }
 
 
-void Search::updateEdges(const Point &startPoint, const Trajectory &trajectory,
-                         std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges)
+void Search::updateActions(const Point &startPoint, const Trajectory &trajectory,
+                           std::unordered_set<AgentAction, ActionHasher> *actions)
 {
-    Point p = startPoint;
     for (const AgentAction action : trajectory) {
-        edges[Edge{p, action.to}].insert(action.start_time);
-        p = action.to;
+        actions->insert(action);
     }
 }
 
 int Search::getMinTimeWithoutSwapConflicts(const Point &a, const Point &b, int start_time, int end_time,
-                                           const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges) const
+                                           const std::unordered_set<AgentAction, ActionHasher> &actions) const
 {
-    Edge reverse_edge{b, a};
+    AgentAction action;
+    action.from = b;
+    action.to = a;
     for (int t = start_time; t <= end_time; t++) {
-        if (edges.count(reverse_edge) == 0 || edges.at(reverse_edge).count(t) == 0) {
+        action.start_time = start_time;
+        if (actions.find(action) == actions.end()) {
             return t;
         }
     }
