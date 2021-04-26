@@ -214,8 +214,10 @@ void XmlLogger::writeTrajectory(const AgentSearchResult &asr, XMLElement *agent_
     for (const AgentAction &action : asr.trajectory) {
         XMLElement *element = doc.NewElement(CNS_TAG_ACTION);
         element->SetAttribute(CNS_TAG_ATTR_START_TIME, action.start_time);
-        element->SetAttribute(CNS_TAG_ATTR_FINX, action.goal.j);
-        element->SetAttribute(CNS_TAG_ATTR_FINY, action.goal.i);
+        element->SetAttribute(CNS_TAG_ATTR_STX, action.from.j);
+        element->SetAttribute(CNS_TAG_ATTR_STY, action.from.i);
+        element->SetAttribute(CNS_TAG_ATTR_FINX, action.to.j);
+        element->SetAttribute(CNS_TAG_ATTR_FINY, action.to.i);
         trajectory->InsertEndChild(element);
     }
 

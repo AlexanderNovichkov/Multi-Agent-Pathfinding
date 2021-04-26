@@ -28,7 +28,7 @@ Search::~Search()
 SearchResult Search::startSearch(ILogger *Logger, const Map &map, const EnvironmentOptions &options)
 {
     const auto start_time = std::chrono::steady_clock::now();
-    const std::unique_ptr<Heuristic> heuristic = getHeuristic(options.metrictype, options.hweight);
+    const std::unique_ptr<Heuristic> heuristic = getHeuristic(options.metrictype);
     std::vector<int> order(map.getAgentsCount());
     std::iota(order.begin(), order.end(), 0);
 
@@ -92,7 +92,7 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
     std::unordered_map<Edge, std::set<int>, EdgeHasher> edges;
     SearchResult cursresult;
 
-    if(options.blockstart > 0) {
+    if (options.blockstart > 0) {
         for (const Agent &agent : map.getAgents()) {
             point_to_intervals[agent.start] = {SafeInterval{options.blockstart, MAX_TIME}};
         }
@@ -102,8 +102,8 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
     cursresult.solution_found = true;
 
     for (auto agent_id : order) {
-        if(options.blockstart > 0) {
-            point_to_intervals[map.getAgent(agent_id).start].insert(SafeInterval{0, options.blockstart-1});
+        if (options.blockstart > 0) {
+            point_to_intervals[map.getAgent(agent_id).start].insert(SafeInterval{0, options.blockstart - 1});
         }
         cursresult.agents_sresult[agent_id] = findAgentTrajectory(agent_id, map, options, heuristic,
                                                                   point_to_intervals, edges);
@@ -114,7 +114,8 @@ SearchResult Search::findTrajectories(const Map &map, const EnvironmentOptions &
         }
 
 
-        updateSafeIntervals(map.getAgents()[agent_id].start, cursresult.agents_sresult[agent_id].trajectory, point_to_intervals);
+        updateSafeIntervals(map.getAgents()[agent_id].start, cursresult.agents_sresult[agent_id].trajectory,
+                            point_to_intervals);
         updateEdges(map.getAgents()[agent_id].start, cursresult.agents_sresult[agent_id].trajectory, edges);
     }
 
@@ -127,7 +128,6 @@ Search::findAgentTrajectory(int agentId, const Map &map, const EnvironmentOption
                             std::unordered_map<Point, SafeIntervalsContainer, PointHasher> &point_to_intervals,
                             const std::unordered_map<Edge, std::set<int>, EdgeHasher> &edges)
 {
-    // Goal has zero safe intervals
     if (point_to_intervals[map.getAgents()[agentId].goal].empty() ||
         point_to_intervals[map.getAgents()[agentId].start].empty()) {
         return AgentSearchResult{};
@@ -234,7 +234,7 @@ Trajectory Search::makeTrajectory(const Node *node)
 {
     Trajectory trajectory;
     while (node->parent != nullptr) {
-        trajectory.push_back(AgentAction{node->g - 1, node->state.pos});
+        trajectory.push_back(AgentAction(node->g - 1, node->parent->state.pos, node->state.pos));
         node = node->parent;
     }
     std::reverse(trajectory.begin(), trajectory.end());
@@ -249,7 +249,7 @@ void Search::updateSafeIntervals(const Point &startPoint, const Trajectory &traj
     for (const AgentAction action : trajectory) {
         int end_time = action.start_time;
         point_to_intervals[p].eraseIntervals(start_time, end_time);
-        p = action.goal;
+        p = action.to;
         start_time = end_time + 1;
     }
     point_to_intervals[p].eraseIntervals(start_time, MAX_TIME);
@@ -261,8 +261,8 @@ void Search::updateEdges(const Point &startPoint, const Trajectory &trajectory,
 {
     Point p = startPoint;
     for (const AgentAction action : trajectory) {
-        edges[Edge{p, action.goal}].insert(action.start_time);
-        p = action.goal;
+        edges[Edge{p, action.to}].insert(action.start_time);
+        p = action.to;
     }
 }
 

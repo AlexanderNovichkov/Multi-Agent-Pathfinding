@@ -25,8 +25,10 @@ struct SafeInterval
 
 struct AgentAction
 {
+    AgentAction(int start_time, const Point &from, const Point &to);
     int start_time;
-    Point goal;
+    Point from;
+    Point to;
 };
 
 using Trajectory = std::vector<AgentAction>;
