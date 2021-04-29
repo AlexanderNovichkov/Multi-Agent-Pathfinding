@@ -92,7 +92,6 @@
         <agentpriority>heuristic-max</agentpriority>
         <metrictype>Manhattan</metrictype>
         <blockstartduration>0</blockstartduration>
-        <hweight>1</hweight>
         <breakingties>g-max</breakingties>
     </algorithm>
     <options>
