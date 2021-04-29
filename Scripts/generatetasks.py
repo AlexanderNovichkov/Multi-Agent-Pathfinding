@@ -78,7 +78,15 @@ def write(file_name, tree: ET.ElementTree, agents):
 def main():
     if len(sys.argv) < 8:
         print("Not enough arguments!")
-        exit(-1)
+        print("Arguments should be")
+        print("Map name")
+        print("Path to xml file with map")
+        print("Path to result directory")
+        print("start_agents_cnt")
+        print("stop_agents_cnt")
+        print("step_agents_cnt")
+        print("Number of tests for every agent_cnt")
+        exit(2)
     map_name = sys.argv[1]
     path_to_xml_with_map = sys.argv[2]
     path_to_result_dir = sys.argv[3]

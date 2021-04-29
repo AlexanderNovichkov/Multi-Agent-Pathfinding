@@ -7,7 +7,7 @@ set(HEADERS         config.h
                     mission.h
                     basicstructures.h
                     search.h
-        searchstructures.h
+                    searchstructures.h
                     searchresult.h
                     tinyxml2.h
                     xmllogger.h
@@ -18,7 +18,7 @@ set(SOURCES         config.cpp
                     map.cpp
                     mission.cpp
                     search.cpp
-        searchstructures.cpp
+                    searchstructures.cpp
                     tinyxml2.cpp
                     xmllogger.cpp
                     heuristics.cpp

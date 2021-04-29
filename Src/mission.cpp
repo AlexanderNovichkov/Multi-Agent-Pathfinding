@@ -45,6 +45,7 @@ void Mission::createEnvironmentOptions()
     options.metrictype = config.SearchParams[CN_SP_MT];
     options.agentpriority = config.SearchParams[CN_SP_AP];
     options.blockstart = config.SearchParams[CN_SP_BS];
+    options.tryotherpriority = config.SearchParams[CN_SP_TP];
 }
 
 void Mission::createSearch()

@@ -44,12 +44,12 @@ SearchResult Search::startSearch(ILogger *Logger, const Map &map, const Environm
     }
 
     sresult = findTrajectories(map, options, *heuristic, order);
-    if (sresult.solution_found) {
+    if (sresult.solution_found || !options.tryotherpriority) {
         sresult.total_time = getDurationInSeconds(start_time);
         return sresult;
     }
 
-    // try other heuristics if solution not found
+    // try other priorities if solution not found
     if (options.agentpriority != CN_SP_AP_HRMAX) {
         sortByHeuristic(&order, *heuristic, map, true);
         SearchResult cursresult = findTrajectories(map, options, *heuristic, order);

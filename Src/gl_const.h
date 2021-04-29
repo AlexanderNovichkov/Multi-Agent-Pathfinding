@@ -31,6 +31,7 @@
         // #define CNS_TAG_CC          "cutcorners"
         #define CNS_TAG_AP          "agentpriority"
         #define CNS_TAG_BS          "blockstartduration"
+        #define CNS_TAG_TP           "tryotherpriority"
 
     #define CNS_TAG_OPT             "options"
         #define CNS_TAG_LOGLVL      "loglevel"
@@ -135,6 +136,7 @@
         #define CN_SP_AP_FIFO   3
 
     #define CN_SP_BS 8
+    #define CN_SP_TP 9
 
 
     //Log Configuration

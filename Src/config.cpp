@@ -43,7 +43,7 @@ bool Config::getConfig(const char *FileName)
     }
 
 
-    SearchParams = new double[9];
+    SearchParams = new double[10];
     SearchParams[CN_SP_ST] = CN_SP_ST_MAPF;
     SearchParams[CN_SP_HW] = 1;
 
@@ -121,6 +121,23 @@ bool Config::getConfig(const char *FileName)
             SearchParams[CN_SP_BS] = 0;
         }
     }
+
+    element = algorithm->FirstChildElement(CNS_TAG_TP);
+    if (!element) {
+        std::cout << "Warning! No '" << CNS_TAG_TP << "' tag found in XML file" << std::endl;
+        std::cout << "Value of '" << CNS_TAG_TP << "' was defined to '" << 0 << "'" << std::endl;
+        SearchParams[CN_SP_TP] = 0;
+    } else {
+        bool valueBool;
+        if (element->QueryBoolText(&valueBool) == tinyxml2::XML_SUCCESS ) {
+            SearchParams[CN_SP_TP] = valueBool;
+        } else {
+            std::cout << "Warning! Value of '" << CNS_TAG_TP << "' is not correctly specified." << std::endl;
+            std::cout << "Value of '" << CNS_TAG_TP << "' was defined to '" << 0 << "'" << std::endl;
+            SearchParams[CN_SP_TP] = 0;
+        }
+    }
+
 
     options = root->FirstChildElement(CNS_TAG_OPT);
     LogParams = new std::string[3];
