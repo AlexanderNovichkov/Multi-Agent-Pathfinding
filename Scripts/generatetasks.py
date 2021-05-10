@@ -28,24 +28,36 @@ class Agent:
         self.goal: Point = goal
 
 
-def generate_free_point(grid: list[list]):
+def generate_free_point(grid: list[list], mapf_should_find_solution):
+    height = len(grid)
+    width = len(grid[0])
+
     for iteration in range(0, 1000):
-        y = random.randint(0, len(grid) - 1)
-        x = random.randint(0, len(grid[0]) - 1)
-        if grid[y][x] == 0:
+        y = random.randint(0, height - 1)
+        x = random.randint(0, width - 1)
+        fl = 0
+        if mapf_should_find_solution:
+            for x1 in range(x-1, x+2):
+                for y1 in range(y-1, y+2):
+                    if 0 <= x1 < width and 0 <= y1 < height and grid[y1][x1] == 1:
+                        fl = 1
+                        break
+        if grid[y][x] == 1:
+            fl = 1
+        if fl == 0:
             return Point(x, y)
     return None
 
 
-def generate_agents(grid: list[list], cnt):
+def generate_agents(grid: list[list], cnt, mapf_should_find_solution):
     mod_grid = copy.deepcopy(grid)
     agents: list[Agent] = []
     for i in range(0, cnt):
-        start = generate_free_point(mod_grid)
+        start = generate_free_point(mod_grid, mapf_should_find_solution)
         if start is None:
             return None
         mod_grid[start.y][start.x] = 1
-        goal = generate_free_point(mod_grid)
+        goal = generate_free_point(mod_grid, mapf_should_find_solution)
         if goal is None:
             return None
         mod_grid[goal.y][goal.x] = 1
@@ -75,8 +87,9 @@ def write(file_name, tree: ET.ElementTree, agents):
 
     mod_tree.write(file_name)
 
+
 def main():
-    if len(sys.argv) < 8:
+    if len(sys.argv) < 9:
         print("Not enough arguments!")
         print("Arguments should be")
         print("Map name")
@@ -86,6 +99,7 @@ def main():
         print("stop_agents_cnt")
         print("step_agents_cnt")
         print("Number of tests for every agent_cnt")
+        print("1 if MAPF should always find a solution, 0 otherwise")
         exit(2)
     map_name = sys.argv[1]
     path_to_xml_with_map = sys.argv[2]
@@ -94,6 +108,7 @@ def main():
     stop_agents_cnt = int(sys.argv[5])
     step_agents_cnt = int(sys.argv[6])
     generate_cnt = int(sys.argv[7])
+    mapf_should_find_solution = bool(sys.argv[8])
 
     # parse map
     tree = ET.parse(path_to_xml_with_map)
@@ -107,7 +122,7 @@ def main():
     # generate
     for agents_cnt in range(start_agents_cnt, stop_agents_cnt, step_agents_cnt):
         for iteration in range(0, generate_cnt):
-            agents = generate_agents(grid, agents_cnt)
+            agents = generate_agents(grid, agents_cnt, mapf_should_find_solution)
             if agents == None:
                 print(f"Can not generate {agents_cnt} agents!")
                 exit(-1)
