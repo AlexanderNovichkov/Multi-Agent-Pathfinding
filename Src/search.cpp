@@ -44,7 +44,8 @@ SearchResult Search::startSearch(ILogger *Logger, const Map &map, const Environm
     }
 
     sresult = findTrajectories(map, options, *heuristic, order);
-    if (sresult.solution_found || !options.tryotherpriority) {
+    if (sresult.solution_found || !options.tryotherpriority ||
+        getDurationInSeconds(start_time) > options.runtimelimit) {
         sresult.total_time = getDurationInSeconds(start_time);
         return sresult;
     }
@@ -53,7 +54,7 @@ SearchResult Search::startSearch(ILogger *Logger, const Map &map, const Environm
     if (options.agentpriority != CN_SP_AP_HRMAX) {
         sortByHeuristic(&order, *heuristic, map, true);
         SearchResult cursresult = findTrajectories(map, options, *heuristic, order);
-        if (cursresult.solution_found) {
+        if (cursresult.solution_found || getDurationInSeconds(start_time) > options.runtimelimit) {
             sresult = std::move(cursresult);
             return sresult;
         }
@@ -62,15 +63,15 @@ SearchResult Search::startSearch(ILogger *Logger, const Map &map, const Environm
     if (options.agentpriority != CN_SP_AP_HRMIN) {
         sortByHeuristic(&order, *heuristic, map, false);
         SearchResult cursresult = findTrajectories(map, options, *heuristic, order);
-        if (cursresult.solution_found) {
+        if (cursresult.solution_found || getDurationInSeconds(start_time) > options.runtimelimit) {
             sresult = std::move(cursresult);
             sresult.total_time = getDurationInSeconds(start_time);
             return sresult;
         }
     }
 
-    if (options.agentpriority != CN_SP_AP_RAND) {
-        std::mt19937 generator(std::time(nullptr));
+    std::mt19937 generator(std::time(nullptr));
+    while (getDurationInSeconds(start_time) <= options.runtimelimit) {
         std::shuffle(order.begin(), order.end(), generator);
         SearchResult cursresult = findTrajectories(map, options, *heuristic, order);
         if (cursresult.solution_found) {

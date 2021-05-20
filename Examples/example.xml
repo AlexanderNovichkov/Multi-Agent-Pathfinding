@@ -93,6 +93,7 @@
         <metrictype>Manhattan</metrictype>
         <blockstartduration>0</blockstartduration>
         <breakingties>g-max</breakingties>
+        <runtimelimit>5.0</runtimelimit>
     </algorithm>
     <options>
         <loglevel>2</loglevel>

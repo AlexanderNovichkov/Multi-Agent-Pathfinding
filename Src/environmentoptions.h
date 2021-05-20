@@ -5,7 +5,7 @@
 
 class EnvironmentOptions {
 public:
-    EnvironmentOptions(int AL, double HW, int AP, int BS, int BT, int MT, bool TP);
+    EnvironmentOptions(int AL, double HW, int AP, int BS, int BT, int MT, bool TP, double TL);
 
     EnvironmentOptions();
 
@@ -16,6 +16,7 @@ public:
     int breakingties;
     int metrictype;     //Can be chosen Euclidean, Manhattan, Chebyshev and Diagonal distance
     bool tryotherpriority;
+    double runtimelimit;
 };
 
 #endif // ENVIRONMENTOPTIONS_H

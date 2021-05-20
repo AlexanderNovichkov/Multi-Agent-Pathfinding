@@ -46,6 +46,7 @@ void Mission::createEnvironmentOptions()
     options.agentpriority = config.SearchParams[CN_SP_AP];
     options.blockstart = config.SearchParams[CN_SP_BS];
     options.tryotherpriority = config.SearchParams[CN_SP_TP];
+    options.runtimelimit = config.SearchParams[CN_SP_TL];
 }
 
 void Mission::createSearch()
