@@ -19,21 +19,28 @@ def get_stats(agents: list, tests_cnt, path_to_dir, task_name):
             summary_section = log_section.find('summary')
             solution_found = True if (summary_section.get('solution_found')).lower() == 'true' else False
             runtime = float(summary_section.get('runtime'))
-            result[agents_cnt][iteration] = {'solution_found': solution_found, 'runtime': runtime}
+            cost = int(summary_section.get('cost'))
+            result[agents_cnt][iteration] = {'solution_found': solution_found, 'runtime': runtime, 'cost': cost}
 
+    average_costs = []
     average_runtimes = []
     success_rates = []
 
     for agents_cnt in agents:
         sum_runtime = 0
-        solutons_found = 0
+        sum_cost = 0
+        solutions_found = 0
         for iteration in range(0, tests_cnt):
+            if result[agents_cnt][iteration]["solution_found"]:
+                sum_cost += result[agents_cnt][iteration]["cost"]
             sum_runtime += result[agents_cnt][iteration]["runtime"]
-            solutons_found += result[agents_cnt][iteration]["solution_found"]
-        average_runtimes.append(sum_runtime / tests_cnt)
-        success_rates.append(solutons_found / tests_cnt * 100)
+            solutions_found += result[agents_cnt][iteration]["solution_found"]
 
-    return average_runtimes, success_rates
+        average_runtimes.append(sum_runtime / solutions_found)
+        average_costs.append(sum_cost / tests_cnt)
+        success_rates.append(solutions_found / tests_cnt * 100)
+
+    return average_runtimes, success_rates, average_costs
 
 
 def main():
@@ -63,13 +70,15 @@ def main():
 
     task_to_average_runtimes = []
     task_to_success_rates = []
+    task_to_average_cost = []
+
     for i in range(0, len(task_names)):
-        average_runtimes, success_rates = get_stats(agents, tests_cnt, path_to_dir, task_names[i])
+        average_runtimes, success_rates, average_cost = get_stats(agents, tests_cnt, path_to_dir, task_names[i])
         task_to_average_runtimes.append(average_runtimes)
         task_to_success_rates.append(success_rates)
+        task_to_average_cost.append(average_cost)
 
-
-    plt.subplot(1, 2, 1)
+    plt.subplot(1, 3, 1)
 
     plt.xlabel("Number of agents")
     plt.ylabel("Success(%)")
@@ -77,13 +86,22 @@ def main():
         plt.plot(agents, task_to_success_rates[i])
     plt.legend(task_plot_names)
 
-    plt.subplot(1,2,2)
+    plt.subplot(1, 3, 2)
 
     plt.xlabel("Number of agents")
     plt.ylabel("Time(s)")
     for i in range(0, len(task_names)):
         plt.plot(agents, task_to_average_runtimes[i])
     plt.legend(task_plot_names)
+
+    plt.subplot(1, 3, 3)
+
+    plt.xlabel("Number of agents")
+    plt.ylabel("Cost")
+    for i in range(0, len(task_names)):
+        plt.plot(agents, task_to_average_cost[i])
+    plt.legend(task_plot_names)
+
     plt.show()
 
 

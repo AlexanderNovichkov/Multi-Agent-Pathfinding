@@ -108,7 +108,9 @@ def main():
     stop_agents_cnt = int(sys.argv[5])
     step_agents_cnt = int(sys.argv[6])
     generate_cnt = int(sys.argv[7])
-    mapf_should_find_solution = bool(sys.argv[8])
+    mapf_should_find_solution = True if sys.argv[8] == "1" else False
+
+    random.seed(123)
 
     # parse map
     tree = ET.parse(path_to_xml_with_map)
