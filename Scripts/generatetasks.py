@@ -89,7 +89,7 @@ def write(file_name, tree: ET.ElementTree, agents):
 
 
 def main():
-    if len(sys.argv) < 9:
+    if len(sys.argv) < 10:
         print("Not enough arguments!")
         print("Arguments should be")
         print("Map name")
@@ -100,6 +100,7 @@ def main():
         print("step_agents_cnt")
         print("Number of tests for every agent_cnt")
         print("1 if MAPF should always find a solution, 0 otherwise")
+        print("Random seed")
         exit(2)
     map_name = sys.argv[1]
     path_to_xml_with_map = sys.argv[2]
@@ -109,8 +110,9 @@ def main():
     step_agents_cnt = int(sys.argv[6])
     generate_cnt = int(sys.argv[7])
     mapf_should_find_solution = True if sys.argv[8] == "1" else False
+    seed = int(sys.argv[9])
 
-    random.seed(123)
+    random.seed(seed)
 
     # parse map
     tree = ET.parse(path_to_xml_with_map)
